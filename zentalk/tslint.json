@@ -46,6 +46,8 @@
     ]
   },
   "rules": {
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
     "type-literal-delimiter": true,
     "prefer-const": true,
     "jsx-no-lambda": false,

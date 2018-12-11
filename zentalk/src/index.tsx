@@ -1,12 +1,19 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import { createAppStore } from './store';
+import { Provider } from 'react-redux';
+
 import './styles/css/zentalk.css'
 
-import registerServiceWorker from './registerServiceWorker';
+const store = createAppStore();
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root') as HTMLElement
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>,
+  document.getElementById('zentalk-root') as HTMLElement
 );
-registerServiceWorker();
