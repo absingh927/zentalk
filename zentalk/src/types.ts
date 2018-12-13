@@ -1,6 +1,6 @@
 export type Users = {
   users: User[];
-  currentUser: currentUser;
+  currentUser: CurrentUser;
 };
 
 export type User = {
@@ -10,7 +10,7 @@ export type User = {
   password: string;
 };
 
-export type currentUser = {
+export type CurrentUser = {
   id: string;
   logged_in: boolean;
   username: string;
