@@ -5,17 +5,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBicycle } from '@fortawesome/free-solid-svg-icons';
 import { CurrentUser } from 'src/types';
 import NavbarToggler from 'reactstrap/lib/NavbarToggler';
+import { connect } from 'react-redux';
+import LoginModal from '../Users/LoginModal';
 
 type HeaderNavProps = {
   userLoggedIn: boolean;
   currentUser: CurrentUser;
+  showModal: (modalType: React.ComponentClass<any>, modalProps: any) => void;
+  hideModal: () => void;
 };
 
 type HeaderNavState = {
   isOpen: boolean;
 };
 
-export default class HeaderNav extends React.PureComponent<HeaderNavProps, HeaderNavState> {
+class HeaderNav extends React.PureComponent<HeaderNavProps, HeaderNavState> {
 
   constructor(props: HeaderNavProps) {
     super (props);
@@ -40,7 +44,7 @@ export default class HeaderNav extends React.PureComponent<HeaderNavProps, Heade
         <NavbarBrand>
           <FontAwesomeIcon icon={faBicycle}/> ZenTalk
         </NavbarBrand>
-        <Button color='primary' className='ml-auto'>
+        <Button color='primary' className='ml-auto' onClick={this.handleLogin}>
           Login
         </Button>
       </Navbar>
@@ -73,4 +77,20 @@ export default class HeaderNav extends React.PureComponent<HeaderNavProps, Heade
       isOpen: !this.state.isOpen,
     });
   }
+
+  private handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
+
+    const handleLogin = () => {
+      // this.props.hideModal();
+      // handlelogin action
+      console.log('login pressed');
+    };
+
+    this.props.showModal(LoginModal, {
+      handleLogin
+    });
+    
+  }
 }
+
+export default connect(null)(HeaderNav);
