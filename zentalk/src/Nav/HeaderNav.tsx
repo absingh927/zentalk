@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { Navbar, Collapse, Nav, NavItem, NavLink, Button } from 'reactstrap';
+import { Navbar, Collapse, Nav, NavItem, Button } from 'reactstrap';
 import NavbarBrand from 'reactstrap/lib/NavbarBrand';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBicycle } from '@fortawesome/free-solid-svg-icons';
 import { CurrentUser } from '../Users/UserTypes';
 import NavbarToggler from 'reactstrap/lib/NavbarToggler';
 import LoginModal from '../Users/LoginModal';
+import NewPostModal from '../Posts/CreateNewPost';
 
 type HeaderNavProps = {
   userLoggedIn: boolean;
@@ -43,7 +44,11 @@ class HeaderNav extends React.PureComponent<HeaderNavProps, HeaderNavState> {
         <NavbarBrand>
           <FontAwesomeIcon icon={faBicycle}/> ZenTalk
         </NavbarBrand>
-        <Button color='primary' className='ml-auto' onClick={this.handleLogin}>
+        <Button
+          color='primary'
+          className='ml-auto'
+          onClick={(e: React.MouseEvent<HTMLButtonElement>) => this.handleNavClickAction(e,'login')}
+        >
           Login
         </Button>
       </Navbar>
@@ -60,10 +65,19 @@ class HeaderNav extends React.PureComponent<HeaderNavProps, HeaderNavState> {
         <Collapse isOpen={this.state.isOpen} navbar={true}>
           <Nav navbar={true} className='ml-auto'>
             <NavItem>
-              <NavLink href='#'>Create New Post</NavLink>
+              <Button
+                color='primary'
+                onClick={(e: React.MouseEvent<HTMLButtonElement>) => this.handleNavClickAction(e,'newpost')}>
+                  Create New Post
+              </Button>
             </NavItem>
             <NavItem>
-              <Button color='link' onClick={this.handleLogout}>Logout</Button>
+              <Button
+                color='link'
+                onClick={(e: React.MouseEvent<HTMLButtonElement>) => this.handleNavClickAction(e,'logout')}
+              >
+                Logout
+              </Button>
             </NavItem>
           </Nav>
         </Collapse>
@@ -77,13 +91,25 @@ class HeaderNav extends React.PureComponent<HeaderNavProps, HeaderNavState> {
     });
   }
 
-  private handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
-    this.props.showModal(LoginModal,{});
-  };
+  // private handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
+  //   this.props.showModal(LoginModal,{});
+  // };
 
-  private handleLogout = (e: React.MouseEvent<HTMLButtonElement>) => {
+  // private handleLogout = (e: React.MouseEvent<HTMLButtonElement>) => {
+  //   e.preventDefault();
+  //   this.props.userLogout();
+  // }
+
+  private handleNavClickAction = (e: React.MouseEvent<HTMLButtonElement>, actionType: string ) => {
     e.preventDefault();
-    this.props.userLogout();
+    if (actionType === 'login') {
+      this.props.showModal(LoginModal,{});
+    } else if( actionType === 'logout'){
+      this.props.userLogout();
+    } else if (actionType === 'newpost'){
+      this.props.showModal(NewPostModal,{});
+    } 
+    return;
   }
 }
 

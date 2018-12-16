@@ -2,67 +2,82 @@ import * as React from 'react';
 import BaseModal from '../shared/ModalManager/BaseModal';
 import { connect } from 'react-redux';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
-import { CallStates, Error, Success } from 'src/types';
+import { CallStates, Success, Loading } from 'src/types';
 import { AppState } from 'src/AppState';
 import { hideModal } from '../shared/ModalManager/ModalManagerActions';
+import { uniqueId } from 'lodash-es';
+import { createNewPost } from './PostsActions';
 
 export type NewPostOwnProps = {
-  currentUserState: CallStates;
+  createNewPostState: CallStates;
 };
 
 const mapDistpatchToProps = {
   hideModal,
+  createNewPost
 };
 
 const mapStateToProps = (store: AppState): NewPostOwnProps => ({
-  currentUserState: store.users.curretUserState,
+  createNewPostState: store.posts.createNewPostState
 });
 
 type NewUserProps = NewPostOwnProps & typeof mapDistpatchToProps;
 
 type NewUserState = {
-  username: string,
-  pwd: string,
+  postName: string,
+  postExternalLink: string,
+  postContent: string,
 };
 
-class NewPost extends React.PureComponent<NewUserProps, NewUserState>{
+class NewPostModal extends React.PureComponent<NewUserProps, NewUserState>{
   constructor(props: NewUserProps) {
     super(props);
 
     this.state = {
-      username:'',
-      pwd: '',
+      postName: '',
+      postExternalLink:'',
+      postContent : '',
     };
   }
 
   public render() {
     return (
       <BaseModal
-        id='newuser-modal'
-        title='Create New Account'
-        primaryActionText='Create'
-        onActionClick={this.handlecreateAccountandLogInUser}
+        id='new-post-modal'
+        title='Create New Post'
+        primaryActionText='Post'
+        onActionClick={this.handleCreateNewPost}
       >
-        {this.renderUserMessage(this.props.currentUserState)}
+        {this.renderUserMessage(this.props.createNewPostState)}
         <Form>
           <FormGroup>
-            <Label for="username">Username</Label>
+            <Label for='post-title'>Username</Label>
             <Input
-              type="text"
-              name="username"
-              value={this.state.username} 
-              onChange={e => this.setState({username: e.target.value})} 
-              placeholder="Enter your username"
+              type='text'
+              name='post-title'
+              value={this.state.postName} 
+              onChange={e => this.setState({postName: e.target.value})} 
+              placeholder='Post Title'
             />
           </FormGroup>
           <FormGroup>
-            <Label for="user-pwd">Password</Label>
+            <Label for='post-link'>External Link:</Label>
             <Input
-              type="password"
-              name="password"
-              value={this.state.pwd}
-              onChange={e => this.setState({pwd: e.target.value})} 
-              placeholder="Enter your password"
+              type='text'
+              name='post-link'
+              value={this.state.postExternalLink} 
+              onChange={e => this.setState({postExternalLink: e.target.value})} 
+              placeholder='External Link'
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for='post-content'>Username</Label>
+            <Input
+              type='textarea'
+              name='post-content'
+              value={this.state.postContent} 
+              onChange={e => this.setState({postContent: e.target.value})} 
+              placeholder='Content'
             />
           </FormGroup>
         </Form>
@@ -70,26 +85,34 @@ class NewPost extends React.PureComponent<NewUserProps, NewUserState>{
     );
   }
 
-  private handlecreateAccountandLogInUser = (e: React.MouseEvent<HTMLButtonElement>) => {
+  private handleCreateNewPost = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+
+    const newPost = {
+      id: uniqueId('posts_'),
+      comments: null,
+      content: this.state.postContent,
+      link: this.state.postExternalLink,
+      name: this.state.postName,
+      voteCount: 0
+    };
     
-    // this.props.createAccountandLogInUser(this.state.username, this.state.pwd);
-    console.log(this.state.username, this.state.pwd);
+    this.props.createNewPost(newPost);
   };
 
   private renderUserMessage = (currentUserState: CallStates) => {
-    if (currentUserState === Error) {
+    if (currentUserState === Loading) {
       return (
-        <p className='mb-3 text-danger'>The username already exists in our records. Pleasy try again.</p>
+        <p className='mb-3 text-info'>Creating your post</p>
       );
     } else if (currentUserState === Success) {
       setTimeout(() => this.props.hideModal(), 3000);
       return (
-        <p className='mb-3 text-success'>Your account was successfully created. You can log in now.</p>
+        <p className='mb-3 text-success'>Your post has been crated.</p>
       );
     }
     return;
   };
 }
 
-export default connect(mapStateToProps, mapDistpatchToProps)(NewPost);
+export default connect(mapStateToProps, mapDistpatchToProps)(NewPostModal);

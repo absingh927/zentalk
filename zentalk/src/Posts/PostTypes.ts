@@ -8,9 +8,9 @@ export type Posts = {
 
 export type Post = {
   id: string;
-  comments: UserComment[];
+  comments: UserComment[] | null;
   content: string;
-  links: string;
+  link: string;
   name: string;
   voteCount: number;
 };

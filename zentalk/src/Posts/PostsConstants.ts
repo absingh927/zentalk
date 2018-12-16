@@ -9,9 +9,9 @@ export const NEW_POST_LOADING = 'NEW_POST_LOADING';
 export const NEW_POST_SUCCESS = 'NEW_POST_SUCCESS';
 export const NEW_POST_FAIL = 'NEW_POST_FAIL';
 
-
 export const defaultState: Posts = {
   posts: [],
   postsState: Loading,
   createNewPostState: Loading,
 };
+
