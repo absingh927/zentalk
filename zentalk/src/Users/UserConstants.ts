@@ -18,6 +18,7 @@ export const defaultState: Users = {
   users: [],
   currentUser: currentUserDefaultState, 
   usersState: Loading,
+  curretUserState: Loading,
 };
 
 export const USER_DUMMY_PWD = '%tester123#';

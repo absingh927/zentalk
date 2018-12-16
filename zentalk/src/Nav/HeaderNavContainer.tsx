@@ -3,7 +3,7 @@ import { CurrentUser } from '../Users/UserTypes';
 import { AppState } from '../AppState';
 import { connect } from 'react-redux';
 import HeaderNav from './HeaderNav';
-import { showModal, hideModal } from '../shared/ModalManager/ModalManagerActions';
+import { showModal } from '../shared/ModalManager/ModalManagerActions';
 import { userLogout } from '../Users/UserActions';
 
 type HeaderNavContainerStateProps = {
@@ -13,7 +13,6 @@ type HeaderNavContainerStateProps = {
 
 const mapDispatchToProps = {
   showModal,
-  hideModal,
   userLogout
 };
 
@@ -32,8 +31,6 @@ class HeaderNavContainer extends React.PureComponent<HeaderNavContainerProps> {
   public render() {
     return (
       <HeaderNav
-        userLoggedIn={this.props.userLoggedIn}
-        currentUser={this.props.currentUser}
         {...this.props}
       />
     );

@@ -27,13 +27,13 @@ export const handlers: ReducerMap<Users> = {
   [constants.USER_AUTH_LOADING]: (state: Users) => {
     return {
       ...state,
-      usersState:Loading
+      curretUserState:Loading
     };
   },
   [constants.USER_AUTH_FAIL]: (state: Users) => {
     return {
       ...state,
-      usersState: Error,
+      curretUserState: Error,
     };
   },
   [constants.USER_AUTH_SUCCESS]: (state: Users, action: Action<CurrentUser>) => {
@@ -44,13 +44,14 @@ export const handlers: ReducerMap<Users> = {
         logged_in: true,
         username: action.payload.username
       },
-      usersState: Success
+      curretUserState: Success
     };
   },
   [constants.USER_LOGOUT_SUCCESS]:(state:Users, action: Action<CurrentUser>) => {
     return {
       ...state,
       currentUser: currentUserDefaultState,
+      curretUserState: Loading,
     };
   },
 };
