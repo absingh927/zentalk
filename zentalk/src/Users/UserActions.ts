@@ -2,7 +2,7 @@ import { Dispatch } from 'redux';
 import * as constants from './UserConstants';
 import axios from 'axios';
 import { AppState } from '../AppState';
-import { find } from 'lodash-es';
+import { find, uniqueId } from 'lodash-es';
 import { currentUserDefaultState } from './UserTypes';
 
 export const createDummyUsers = () => (dispatch: Dispatch) => {
@@ -27,11 +27,10 @@ export const userLogin = (username: string, password: string) => (dispatch: Disp
   dispatch({type: constants.USER_AUTH_LOADING});
 
   const users = getState().users.users;
-  const userData = find(users,(u) => {return u.username === username && u.password === password});
+  const userData = find(users,{'username' : username, 'password': password});
 
   if (userData === undefined) {
-    dispatch({
-      type: constants.USER_AUTH_FAIL});
+    dispatch({type: constants.USER_AUTH_FAIL});
   } 
   else {
     dispatch({
@@ -46,4 +45,27 @@ export const userLogout = () => (dispatch: Dispatch) => {
     type: constants.USER_LOGOUT_SUCCESS,
     payload: currentUserDefaultState
   });
+}
+
+export const createAccountandLogInUser = (username: string, password: string) => (dispatch: Dispatch, getState: () => AppState) => {
+  dispatch({type: constants.NEW_USER_LOADING});
+
+  const users = getState().users.users;
+  const currentUsers = find(users,['username', username]);
+
+  if (currentUsers === undefined) {
+    const newUser = {
+      id: uniqueId('user_1'),
+      username: username,
+      password: password,
+      avatar_url: constants.USER_AVATAR_URL,
+    }
+    dispatch({
+      type: constants.NEW_USER_SUCCESS,
+      payload: newUser
+    });
+  } 
+  else {
+    dispatch({type: constants.USER_AUTH_FAIL});
+  }
 }

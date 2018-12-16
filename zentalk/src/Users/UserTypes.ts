@@ -5,6 +5,7 @@ export type Users = {
   currentUser: CurrentUser;
   usersState: CallStates;
   curretUserState: CallStates;
+  newUserState: CallStates;
 };
 
 export type User = {
