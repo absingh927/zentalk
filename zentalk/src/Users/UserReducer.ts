@@ -54,19 +54,19 @@ export const handlers: ReducerMap<Users> = {
       curretUserState: Loading,
     };
   },
-  [constants.NEW_USER_FAIL]: (state: Users) => {
+  [constants.NEW_USER_CREATE_FAIL]: (state: Users) => {
     return {
       ...state,
       newUserState: Error,
     };
   },
-  [constants.NEW_USER_LOADING]: (state:Users) => {
+  [constants.NEW_USER_CREATE_LOADING]: (state:Users) => {
     return {
       ...state,
       newUserState: Loading,
     };
   },
-  [constants.NEW_USER_SUCCESS]: (state:Users, action: Action<User>) => {
+  [constants.NEW_USER_CREATE_SUCCESS]: (state:Users, action: Action<User>) => {
     let newUser = [];
     newUser.push(action.payload);
 

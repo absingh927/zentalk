@@ -48,7 +48,7 @@ export const userLogout = () => (dispatch: Dispatch) => {
 }
 
 export const createAccountandLogInUser = (username: string, password: string) => (dispatch: Dispatch, getState: () => AppState) => {
-  dispatch({type: constants.NEW_USER_LOADING});
+  dispatch({type: constants.NEW_USER_CREATE_LOADING});
 
   const users = getState().users.users;
   const currentUsers = find(users,['username', username]);
@@ -61,7 +61,7 @@ export const createAccountandLogInUser = (username: string, password: string) =>
       avatar_url: constants.USER_AVATAR_URL,
     }
     dispatch({
-      type: constants.NEW_USER_SUCCESS,
+      type: constants.NEW_USER_CREATE_SUCCESS,
       payload: newUser
     });
   } 
