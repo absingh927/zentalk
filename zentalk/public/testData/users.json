@@ -20,7 +20,6 @@
     },
     {
       "_id": "user_3",
-      "name": "Maria Larson",
       "username": "mlarson",
       "password": "%tester123#",
       "avatar_url": "http://placehold.it/32x32"

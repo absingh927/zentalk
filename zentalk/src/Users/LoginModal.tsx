@@ -5,15 +5,18 @@ import { Form, FormGroup, Label, Input } from 'reactstrap';
 import { userLogin } from './UserActions';
 import { CallStates, Error, Success } from 'src/types';
 import { AppState } from 'src/AppState';
-import { hideModal } from '../shared/ModalManager/ModalManagerActions';
+import { hideModal, showModal } from '../shared/ModalManager/ModalManagerActions';
+import NewUserModal from './NewUserModal';
 
 export type LoginModalOwnProps = {
+  userMessage?: string,
   currentUserState: CallStates;
 };
 
 const mapDistpatchToProps = {
   userLogin,
   hideModal,
+  showModal,
 };
 
 const mapStateToProps = (store: AppState): LoginModalOwnProps => ({
@@ -68,6 +71,9 @@ class LoginModal extends React.PureComponent<LoginModalProps, LoginModalState>{
             />
           </FormGroup>
         </Form>
+        <section>
+          <p>If you do not have an account,please <span className='text-primary' onClick={this.showCreateAccoutModal}>create an account</span>.An account will allow you to vote and create posts in the forum.</p>
+        </section>
       </BaseModal>
     );
   }
@@ -78,7 +84,6 @@ class LoginModal extends React.PureComponent<LoginModalProps, LoginModalState>{
   };
 
   private renderUserMessage = (currentUserState: CallStates) => {
-    console.log(currentUserState);
     if (currentUserState === Error) {
       return (
         <p className='mb-3 text-danger'>Your email or password did not match our records. Please try again.</p>
@@ -91,6 +96,10 @@ class LoginModal extends React.PureComponent<LoginModalProps, LoginModalState>{
     }
     return;
   };
+
+  private showCreateAccoutModal = () => {
+    this.props.showModal(NewUserModal,{});
+  }
 }
 
 export default connect(mapStateToProps, mapDistpatchToProps)(LoginModal);

@@ -58,7 +58,7 @@ class HeaderNav extends React.PureComponent<HeaderNavProps, HeaderNavState> {
         </NavbarBrand>
         <NavbarToggler onClick={this.toggleNavbar}/>
         <Collapse isOpen={this.state.isOpen} navbar={true}>
-          <Nav navbar={true}>
+          <Nav navbar={true} className='ml-auto'>
             <NavItem>
               <NavLink href='#'>Create New Post</NavLink>
             </NavItem>
