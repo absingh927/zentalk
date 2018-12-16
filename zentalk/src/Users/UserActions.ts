@@ -2,6 +2,7 @@ import { Dispatch } from 'redux';
 import * as constants from './UserConstants';
 import axios from 'axios';
 import { AppState } from '../AppState';
+import { find } from 'lodash-es';
 
 export const createDummyUsers = () => (dispatch: Dispatch) => {
   dispatch({type: constants.DUMMY_USERS_LOADING});
@@ -24,9 +25,17 @@ export const createDummyUsers = () => (dispatch: Dispatch) => {
 export const userLogin = (username: string, password: string) => (dispatch: Dispatch, getState: () => AppState) => {
   dispatch({type: constants.USER_AUTH_LOADING});
 
-  const currentState = getState();
-  const users = currentState.users.users;
-  console.log('users', users);
-  console.log('entered username', username);
+  const users = getState().users.users;
+  const userData = find(users,(u) => {return u.username === username && u.password === password});
 
+  if (userData === undefined) {
+    dispatch({
+      type: constants.USER_AUTH_FAIL});
+  } 
+  else {
+    dispatch({
+      type: constants.USER_AUTH_SUCCESS,
+      payload: userData
+    });
+  }
 }

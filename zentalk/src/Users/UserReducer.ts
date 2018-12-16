@@ -1,5 +1,5 @@
 import { Action, Loading, Success, Error } from '../types';
-import { Users, User } from './UserTypes';
+import { Users, User, CurrentUser } from './UserTypes';
 import * as constants from './UserConstants';
 import { ReducerMap } from '../helpers';
 
@@ -22,6 +22,29 @@ export const handlers: ReducerMap<Users> = {
     return {
       ...state,
       usersState: Error,
+    };
+  },
+  [constants.USER_AUTH_LOADING]: (state: Users) => {
+    return {
+      ...state,
+      usersState:Loading
+    };
+  },
+  [constants.USER_AUTH_FAIL]: (state: Users) => {
+    return {
+      ...state,
+      usersState: Error,
+    };
+  },
+  [constants.USER_AUTH_SUCCESS]: (state: Users, action: Action<CurrentUser>) => {
+    return {
+      ...state,
+      currentUser: {
+        id: action.payload.id,
+        logged_in: true,
+        username: action.payload.username
+      },
+      usersState: Success
     };
   }
 };

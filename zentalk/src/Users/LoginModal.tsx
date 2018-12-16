@@ -43,13 +43,13 @@ class LoginModal extends React.PureComponent<LoginModalProps, LoginModalState>{
         )}
         <Form>
           <FormGroup>
-            <Label for="user-email">Email</Label>
+            <Label for="user-email">Username</Label>
             <Input
-              type="email"
-              name="email"
+              type="text"
+              name="username"
               value={this.state.username} 
               onChange={e => this.setState({username: e.target.value})} 
-              placeholder="Enter your email"
+              placeholder="Enter your username"
             />
           </FormGroup>
           <FormGroup>
