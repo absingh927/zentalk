@@ -1,4 +1,5 @@
-import { Action, Posts } from '../types';
+import { Action } from '../types';
+import { Posts } from './PostTypes';
 import * as constants from './PostsConstants';
 import { ReducerMap } from '../helpers';
 

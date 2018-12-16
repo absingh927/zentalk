@@ -1,15 +1,3 @@
-export type Posts = {
-  posts: Post[];
-};
-
-export type Post = {
-  id: string;
-  comments: UserComment[];
-  content: string;
-  name: string;
-  voteCount: number;
-};
-
 export type UserComment = {
   comment_id: string;
 };
