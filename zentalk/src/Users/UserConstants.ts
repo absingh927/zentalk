@@ -1,4 +1,5 @@
-import { Users, Loading } from '../types';
+import { Loading } from '../types';
+import { Users } from './UserTypes';
 
 // Base statuses
 export const USER_AUTH_LOADING = 'USER_AUTH_LOADING';

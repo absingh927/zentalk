@@ -1,4 +1,5 @@
-import { Action, Users, User, Loading, Success, Error } from '../types';
+import { Action, Loading, Success, Error } from '../types';
+import { Users, User } from './UserTypes';
 import * as constants from './UserConstants';
 import { ReducerMap } from '../helpers';
 

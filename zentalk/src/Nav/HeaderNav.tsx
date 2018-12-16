@@ -3,7 +3,7 @@ import { Navbar, Collapse, Nav, NavItem, NavLink, Button } from 'reactstrap';
 import NavbarBrand from 'reactstrap/lib/NavbarBrand';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBicycle } from '@fortawesome/free-solid-svg-icons';
-import { CurrentUser } from 'src/types';
+import { CurrentUser } from '../Users/UserTypes';
 import NavbarToggler from 'reactstrap/lib/NavbarToggler';
 import { connect } from 'react-redux';
 import LoginModal from '../Users/LoginModal';
@@ -80,15 +80,16 @@ class HeaderNav extends React.PureComponent<HeaderNavProps, HeaderNavState> {
 
   private handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
 
-    const handleLogin = () => {
-      // this.props.hideModal();
-      // handlelogin action
-      console.log('login pressed');
-    };
+    // const handleLogin = () => {
+    //   // this.props.hideModal();
+    //   // handlelogin action
+    //   console.log('login pressed nav');
+    //   console.log(e.target);
 
-    this.props.showModal(LoginModal, {
-      handleLogin
-    });
+    //   //if login success then log in, otherwise error
+    // };
+
+    this.props.showModal(LoginModal, {});
     
   }
 }

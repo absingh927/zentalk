@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CurrentUser } from '../types';
+import { CurrentUser } from '../Users/UserTypes';
 import { AppState } from '../AppState';
 import { connect } from 'react-redux';
 import HeaderNav from './HeaderNav';

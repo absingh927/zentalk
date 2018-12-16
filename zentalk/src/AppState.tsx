@@ -1,4 +1,5 @@
-import { Users, Posts, Comments } from './types';
+import {Posts, Comments } from './types';
+import { Users } from './Users/UserTypes';
 
 export type AppState = {
   users: Users;
