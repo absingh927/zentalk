@@ -1,0 +1,41 @@
+{
+  "users": [
+    {
+      "_id": "user_0",
+      "username": "asingh",
+      "password": "%tester123#",
+      "avatar_url": "http://placehold.it/32x32"
+    },
+    {
+      "_id": "user_1",
+      "username": "nkeith",
+      "password": "%tester123#",
+      "avatar_url": "http://placehold.it/32x32"
+    },
+    {
+      "_id": "user_2",
+      "username": "srogers",
+      "password": "%tester123#",
+      "avatar_url": "http://placehold.it/32x32"
+    },
+    {
+      "_id": "user_3",
+      "name": "Maria Larson",
+      "username": "mlarson",
+      "password": "%tester123#",
+      "avatar_url": "http://placehold.it/32x32"
+    },
+    {
+      "_id": "user_4",
+      "username": "bortega",
+      "password": "%tester123#",
+      "avatar_url": "http://placehold.it/32x32"
+    },
+    {
+      "_id": "user_5",
+      "username": "tstark",
+      "password": "%tester123#",
+      "avatar_url": "http://placehold.it/32x32"
+    }
+  ]
+}

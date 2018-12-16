@@ -1,6 +1,7 @@
 export type Users = {
   users: User[];
   currentUser: CurrentUser;
+  usersState: CallStates;
 };
 
 export type User = {
@@ -37,11 +38,18 @@ export type Comments = {
 };
 
 export type Comment = {
-  id: string;
+  comment_id: string;
   content: string;
+  post_id: string;
   username_id: string;
   username: string;
 };
+
+export const Loading = 'loading';
+export const Success = 'success';
+export const Error = 'error';
+
+export type CallStates = typeof Loading | typeof Success | typeof Error;
 
 export type Action<T> = {
   type: string;

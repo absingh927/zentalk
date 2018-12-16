@@ -36,11 +36,11 @@ export default class HeaderNav extends React.PureComponent<HeaderNavProps, Heade
 
   private renderDefaultNav = () => {
     return (
-      <Navbar color='success' expand='sm' className='text-light'>
+      <Navbar color='info' expand='sm' className='text-light'>
         <NavbarBrand>
           <FontAwesomeIcon icon={faBicycle}/> ZenTalk
         </NavbarBrand>
-        <Button outline color='info' className='ml-auto'>
+        <Button color='primary' className='ml-auto'>
           Login
         </Button>
       </Navbar>

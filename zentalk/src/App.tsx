@@ -1,20 +1,36 @@
 import * as React from 'react';
-// import logo from './logo.svg';
+// import { Posts } from './types';
+import HeaderNavContainer from './Nav/HeaderNavContainer';
+import { connect } from 'react-redux';
+import { createDummyUsers } from './Users/UserActions';
 
-class App extends React.Component {
+// type AppComponentMapState = {
+//   posts: Posts;
+// };
+
+const mapDistpatchToProps = {
+  createDummyUsers,
+};
+
+type AppComponentProps =  typeof  mapDistpatchToProps;
+
+class App extends React.PureComponent<AppComponentProps> {
+  constructor(props: AppComponentProps){
+    super(props);
+  }
+
+  public componentWillMount() {
+    this.props.createDummyUsers();
+  }
+
   public render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
+      <>
+        <HeaderNavContainer/>
+        <p>Posts Body</p>
+      </>
     );
   }
 }
 
-export default App;
+export default connect(null,mapDistpatchToProps)(App);
