@@ -1,5 +1,5 @@
 import { Action, Loading, Success, Error } from '../types';
-import { Users, User, CurrentUser } from './UserTypes';
+import { Users, User, CurrentUser, currentUserDefaultState } from './UserTypes';
 import * as constants from './UserConstants';
 import { ReducerMap } from '../helpers';
 
@@ -46,7 +46,13 @@ export const handlers: ReducerMap<Users> = {
       },
       usersState: Success
     };
-  }
+  },
+  [constants.USER_LOGOUT_SUCCESS]:(state:Users, action: Action<CurrentUser>) => {
+    return {
+      ...state,
+      currentUser: currentUserDefaultState,
+    };
+  },
 };
 
 export function users(state: Users = constants.defaultState, action: Action<any>) {

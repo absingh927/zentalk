@@ -18,3 +18,9 @@ export type CurrentUser = {
   logged_in: boolean;
   username: string;
 };
+
+export const currentUserDefaultState = {
+  id: '',
+  username: '',
+  logged_in: false,
+};

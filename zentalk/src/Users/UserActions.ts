@@ -3,6 +3,7 @@ import * as constants from './UserConstants';
 import axios from 'axios';
 import { AppState } from '../AppState';
 import { find } from 'lodash-es';
+import { currentUserDefaultState } from './UserTypes';
 
 export const createDummyUsers = () => (dispatch: Dispatch) => {
   dispatch({type: constants.DUMMY_USERS_LOADING});
@@ -38,4 +39,11 @@ export const userLogin = (username: string, password: string) => (dispatch: Disp
       payload: userData
     });
   }
+}
+
+export const userLogout = () => (dispatch: Dispatch) => {
+  dispatch({
+    type: constants.USER_LOGOUT_SUCCESS,
+    payload: currentUserDefaultState
+  });
 }

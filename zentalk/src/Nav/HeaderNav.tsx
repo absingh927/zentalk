@@ -13,6 +13,7 @@ type HeaderNavProps = {
   currentUser: CurrentUser;
   showModal: (modalType: React.ComponentClass<any>, modalProps: any) => void;
   hideModal: () => void;
+  userLogout: () => void;
 };
 
 type HeaderNavState = {
@@ -64,7 +65,7 @@ class HeaderNav extends React.PureComponent<HeaderNavProps, HeaderNavState> {
               <NavLink href='#'>Create New Post</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href='#'>Logout</NavLink>
+              <Button color='link' onClick={this.handleLogout}>Logout</Button>
             </NavItem>
           </Nav>
         </Collapse>
@@ -91,6 +92,11 @@ class HeaderNav extends React.PureComponent<HeaderNavProps, HeaderNavState> {
 
     this.props.showModal(LoginModal, {});
     
+  };
+
+  private handleLogout = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    this.props.userLogout();
   }
 }
 
