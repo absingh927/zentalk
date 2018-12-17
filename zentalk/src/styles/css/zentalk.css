@@ -6355,3 +6355,14 @@ body {
     color: #6c757d;
     font-size: 1.5rem;
     line-height: 1.2; }
+
+.user-icon {
+  border-radius: 50%;
+  color: #fff;
+  display: inline-block;
+  font-size: 12px;
+  font-style: normal;
+  height: 32px;
+  line-height: 32px;
+  position: relative;
+  width: 32px; }

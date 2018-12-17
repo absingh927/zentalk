@@ -4,37 +4,37 @@
       "id": "user_0",
       "username": "asingh",
       "password": "tester123",
-      "avatar_url": "http://placehold.it/32x32"
+      "avatar_url": "http://placehold.it/64x64"
     },
     {
       "id": "user_1",
       "username": "nkeith",
       "password": "tester123",
-      "avatar_url": "http://placehold.it/32x32"
+      "avatar_url": "http://placehold.it/64x64"
     },
     {
       "id": "user_2",
       "username": "srogers",
       "password": "tester123",
-      "avatar_url": "http://placehold.it/32x32"
+      "avatar_url": "http://placehold.it/64x64"
     },
     {
       "id": "user_3",
       "username": "mlarson",
       "password": "tester123",
-      "avatar_url": "http://placehold.it/32x32"
+      "avatar_url": "http://placehold.it/64x64"
     },
     {
       "id": "user_4",
       "username": "bortega",
       "password": "tester123",
-      "avatar_url": "http://placehold.it/32x32"
+      "avatar_url": "http://placehold.it/64x64"
     },
     {
       "id": "user_5",
       "username": "tstark",
       "password": "tester123",
-      "avatar_url": "http://placehold.it/32x32"
+      "avatar_url": "http://placehold.it/64x64"
     }
   ]
 }
