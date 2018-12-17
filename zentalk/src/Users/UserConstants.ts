@@ -28,4 +28,4 @@ export const defaultState: Users = {
 };
 
 export const USER_DATA_URL = 'http://localhost:3000/testData/users.json';
-export const USER_AVATAR_URL = 'http://placehold.it/64x64';
+export const USER_AVATAR_URL = 'http://placekitten.com/200/300';
