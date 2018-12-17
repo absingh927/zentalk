@@ -92,7 +92,7 @@ class LoginModal extends React.PureComponent<LoginModalProps, LoginModalState >{
         <p className='mb-3 text-danger'>Your email or password did not match our records. Please try again.</p>
       );
     } else if (currentUserState === Success) {
-      setTimeout(() => this.props.hideModal(), 3000);
+      setTimeout(() => this.props.hideModal(), 2000);
       return (
         <p className='mb-3 text-success'>You were successfully logged in.</p>
       );

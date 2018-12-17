@@ -83,7 +83,7 @@ class NewUser extends React.PureComponent<NewUserProps, NewUserState >{
         <p className='mb-3 text-danger'>The username already exists in our records. Pleasy try again.</p>
       );
     } else if (currentUserState === Success) {
-      setTimeout(() => this.props.hideModal(), 3000);
+      setTimeout(() => this.props.hideModal(), 2000);
       return (
         <p className='mb-3 text-success'>Your account was successfully created. You can log in now.</p>
       );
