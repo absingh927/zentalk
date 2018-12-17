@@ -5,7 +5,7 @@ import { CardText } from 'reactstrap';
 import { voteCounter }  from '../PostsActions';
 import { connect } from 'react-redux';
 import { AppState } from 'src/AppState';
-import LoginModal from '../../Users/LoginModal';
+import LoginModal from '../../Users/components/LoginModal';
 import { showModal } from '../../shared/ModalManager/ModalManagerActions';
 
 type VoteCounterOwnProps = {

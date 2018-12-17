@@ -1,4 +1,5 @@
-import { UserComment, CallStates } from '../types';
+import { CallStates } from '../types';
+import { UserComment } from '../Comments/CommentTypes';
 
 export type Posts = {
   posts: Post[];

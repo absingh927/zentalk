@@ -28,7 +28,7 @@ export const userLogin = (username: string, password: string) => (dispatch: Disp
 
   const users = getState().users.users;
   const userData = find(users,{'username' : username, 'password': password});
-
+  
   if (userData === undefined) {
     dispatch({type: constants.USER_AUTH_FAIL});
   } 

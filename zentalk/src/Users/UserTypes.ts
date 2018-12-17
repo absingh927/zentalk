@@ -16,12 +16,14 @@ export type User = {
 };
 
 export type CurrentUser = {
+  avatar_url: string;
   id: string;
   logged_in: boolean;
   username: string;
 };
 
 export const currentUserDefaultState = {
+  avatar_url: '',
   id: '',
   username: '',
   logged_in: false,

@@ -1,13 +1,13 @@
 import * as React from 'react';
-import BaseModal from '../shared/ModalManager/BaseModal';
+import BaseModal from '../../shared/ModalManager/BaseModal';
 import { connect } from 'react-redux';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 import { CallStates, Error, Success } from 'src/types';
 import { AppState } from 'src/AppState';
-import { hideModal } from '../shared/ModalManager/ModalManagerActions';
-import { createAccountandLogInUser } from './UserActions';
+import { hideModal } from '../../shared/ModalManager/ModalManagerActions';
+import { createAccountandLogInUser } from '../UserActions';
 
-export type NewUserOwnProps = {
+type NewUserOwnProps = {
   currentUserState: CallStates;
 };
 

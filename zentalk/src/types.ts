@@ -1,19 +1,3 @@
-export type UserComment = {
-  comment_id: string;
-};
-
-export type Comments = {
-  comments: Comment[];
-};
-
-export type Comment = {
-  comment_id: string;
-  content: string;
-  post_id: string;
-  username_id: string;
-  username: string;
-};
-
 export const Loading = 'loading';
 export const Success = 'success';
 export const Error = 'error';

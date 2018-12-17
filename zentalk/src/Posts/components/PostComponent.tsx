@@ -2,14 +2,15 @@ import * as React from 'react';
 import { Post } from '../PostTypes';
 import { Card, Row, Col, CardBody, CardText } from 'reactstrap';
 import VoteCounter from './VoteCounter';
+
 type PostProps = {
   posts: Post[];
-}
+};
 
 class PostComponent extends React.PureComponent<PostProps>{
   constructor(props:PostProps) {
     super(props);
-  }
+  };
 
   public render() {
     if (this.props.posts.length === 0) {

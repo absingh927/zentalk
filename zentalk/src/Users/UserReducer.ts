@@ -40,9 +40,10 @@ export const handlers: ReducerMap<Users> = {
     return {
       ...state,
       currentUser: {
+        avatar_url: constants.USER_AVATAR_URL,
         id: action.payload.id,
         logged_in: true,
-        username: action.payload.username
+        username: action.payload.username,
       },
       curretUserState: Success
     };
@@ -74,6 +75,7 @@ export const handlers: ReducerMap<Users> = {
       ...state,
       users: [...state.users, ...newUser],
       currentUser: {
+        avatar_url: action.payload.avatar_url,
         id: action.payload.id,
         logged_in: true,
         username: action.payload.username

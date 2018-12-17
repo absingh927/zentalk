@@ -8,7 +8,7 @@ import { hideModal } from '../../shared/ModalManager/ModalManagerActions';
 import { uniqueId } from 'lodash-es';
 import { createNewPost } from '../PostsActions';
 
-export type NewPostOwnProps = {
+type NewPostOwnProps = {
   createNewPostState: CallStates;
 };
 

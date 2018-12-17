@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBicycle } from '@fortawesome/free-solid-svg-icons';
 import { CurrentUser } from '../Users/UserTypes';
 import NavbarToggler from 'reactstrap/lib/NavbarToggler';
-import LoginModal from '../Users/LoginModal';
+import LoginModal from '../Users/components/LoginModal';
 import NewPostModal from '../Posts/components/CreateNewPost';
 
 type HeaderNavProps = {

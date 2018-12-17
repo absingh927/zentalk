@@ -1,14 +1,14 @@
 import * as React from 'react';
-import BaseModal from '../shared/ModalManager/BaseModal';
+import BaseModal from '../../shared/ModalManager/BaseModal';
 import { connect } from 'react-redux';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
-import { userLogin } from './UserActions';
+import { userLogin } from '../UserActions';
 import { CallStates, Error, Success } from 'src/types';
 import { AppState } from 'src/AppState';
-import { hideModal, showModal } from '../shared/ModalManager/ModalManagerActions';
+import { hideModal, showModal } from '../../shared/ModalManager/ModalManagerActions';
 import NewUserModal from './NewUserModal';
 
-export type LoginModalOwnProps = {
+type LoginModalOwnProps = {
   userMessage?: string,
   currentUserState: CallStates;
 };
@@ -38,7 +38,7 @@ class LoginModal extends React.PureComponent<LoginModalProps, LoginModalState>{
       username:'',
       pwd: '',
     };
-  }
+  };
 
   public render() {
     return (
