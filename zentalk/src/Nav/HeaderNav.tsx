@@ -6,7 +6,7 @@ import { faBicycle } from '@fortawesome/free-solid-svg-icons';
 import { CurrentUser } from '../Users/UserTypes';
 import NavbarToggler from 'reactstrap/lib/NavbarToggler';
 import LoginModal from '../Users/LoginModal';
-import NewPostModal from '../Posts/CreateNewPost';
+import NewPostModal from '../Posts/components/CreateNewPost';
 
 type HeaderNavProps = {
   userLoggedIn: boolean;
@@ -90,15 +90,6 @@ class HeaderNav extends React.PureComponent<HeaderNavProps, HeaderNavState> {
       isOpen: !this.state.isOpen,
     });
   }
-
-  // private handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
-  //   this.props.showModal(LoginModal,{});
-  // };
-
-  // private handleLogout = (e: React.MouseEvent<HTMLButtonElement>) => {
-  //   e.preventDefault();
-  //   this.props.userLogout();
-  // }
 
   private handleNavClickAction = (e: React.MouseEvent<HTMLButtonElement>, actionType: string ) => {
     e.preventDefault();

@@ -3,7 +3,7 @@ import * as React from 'react';
 import HeaderNavContainer from './Nav/HeaderNavContainer';
 import { connect } from 'react-redux';
 import { createDummyUsers } from './Users/UserActions';
-import PostComponent from './Posts/PostComponent';
+import PostContainer from './Posts/components/PostContainer';
 import { ModalManager } from './shared/ModalManager/ModalManager';
 
 // type AppComponentMapState = {
@@ -29,7 +29,7 @@ class App extends React.PureComponent<AppComponentProps> {
     return (
       <>
         <HeaderNavContainer/>
-        <PostComponent/>
+        <PostContainer/>
         <ModalManager />
       </>
     );

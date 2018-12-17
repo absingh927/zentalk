@@ -7,7 +7,6 @@ export const handlers: ReducerMap<Posts> = {
   [constants.NEW_POST_SUCCESS]: (state: Posts, action: Action<Post> ) => {
     let newPost = [];
     newPost.push(action.payload);
-    console.log('posts',newPost);
     return {
       ...state,
       posts: [...state.posts, ...newPost],
