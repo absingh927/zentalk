@@ -7,7 +7,7 @@ export type UserComment = {
 
 export type Comments = {
   comments: Comment[];
-  commentsState: CallStates | null;
+  commentsState: CallStates;
 };
 
 export type Comment = {

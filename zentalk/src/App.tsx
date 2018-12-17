@@ -6,6 +6,9 @@ import PostContainer from './Posts/components/PostContainer';
 import { ModalManager } from './shared/ModalManager/ModalManager';
 import { createDummyPosts } from './Posts/PostsActions';
 import { createDummyComments } from './Comments/CommentsActions';
+import { AppState } from './AppState';
+import { CallStates, Loading } from './types';
+import LoadingState  from './shared/LoadingState';
 
 const mapDistpatchToProps = {
   createDummyUsers,
@@ -13,7 +16,19 @@ const mapDistpatchToProps = {
   createDummyComments,
 };
 
-type AppComponentProps =  typeof  mapDistpatchToProps;
+type AppComponentStateProps = {
+  usersStatus: CallStates,
+  commentsStatus: CallStates,
+  postsStatus: CallStates,
+}
+
+const mapStateToProps = (store: AppState): AppComponentStateProps => ({
+  usersStatus: store.users.usersState,
+  commentsStatus: store.comments.commentsState,
+  postsStatus: store.posts.postsState,
+});
+
+type AppComponentProps = AppComponentStateProps & typeof  mapDistpatchToProps;
 
 class App extends React.PureComponent<AppComponentProps> {
   constructor(props: AppComponentProps){
@@ -30,6 +45,17 @@ class App extends React.PureComponent<AppComponentProps> {
     return (
       <>
         <HeaderNavContainer/>
+        {this.renderMain()}
+      </>
+    );
+  }
+
+  private renderMain = () => {
+    if ((this.props.commentsStatus && this.props.postsStatus && this.props.usersStatus) === Loading) {
+      return <LoadingState/>
+    }
+    return (
+      <>
         <PostContainer/>
         <ModalManager />
       </>
@@ -37,4 +63,4 @@ class App extends React.PureComponent<AppComponentProps> {
   }
 }
 
-export default connect(null,mapDistpatchToProps)(App);
+export default connect(mapStateToProps,mapDistpatchToProps)(App);

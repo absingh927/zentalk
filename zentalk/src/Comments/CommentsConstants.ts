@@ -1,4 +1,5 @@
 import { Comments } from './CommentTypes';
+import {Loading} from '../types';
 
 export const COMMENTS_LOADING = 'COMMENTS_LOADING';
 export const COMMENTS_SUCCESS = 'COMMENTS_SUCCESS';
@@ -10,5 +11,5 @@ export const COMMENTS_DATA_URL = 'http://localhost:3000/testData/comments.json';
 
 export const defaultState: Comments = {
   comments: [],
-  commentsState: null,
+  commentsState: Loading,
 };
