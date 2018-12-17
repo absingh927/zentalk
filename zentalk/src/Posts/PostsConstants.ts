@@ -15,3 +15,4 @@ export const defaultState: Posts = {
   createNewPostState: Loading,
 };
 
+export const POST_DATA_URL = 'http://localhost:3000/testData/posts.json';

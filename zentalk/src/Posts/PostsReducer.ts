@@ -18,7 +18,27 @@ export const handlers: ReducerMap<Posts> = {
       ...state,
       createNewPostState: Loading
     }
-  }
+  },
+  [constants.POSTS_LOADING]: (state: Posts) => {
+    return {
+      ...state,
+      postsState: Loading,
+    };
+  },
+  [constants.POSTS_FAIL]: (state: Posts) => {
+    return {
+      ...state,
+      usersState: Error,
+    };
+  },
+  [constants.POSTS_SUCCESS]: (state: Posts, action: Action<Post[]>) => {
+    console.log(action.payload);
+    return {
+      ...state,
+      posts: action.payload,
+      postsState: Success,
+    }
+  },
 };
 
 export function posts(state: Posts = constants.defaultState, action: Action<any>) {

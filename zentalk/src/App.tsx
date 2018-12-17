@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { createDummyUsers } from './Users/UserActions';
 import PostContainer from './Posts/components/PostContainer';
 import { ModalManager } from './shared/ModalManager/ModalManager';
+import { createDummyPosts } from './Posts/PostsActions';
 
 // type AppComponentMapState = {
 //   posts: Posts;
@@ -12,6 +13,7 @@ import { ModalManager } from './shared/ModalManager/ModalManager';
 
 const mapDistpatchToProps = {
   createDummyUsers,
+  createDummyPosts,
 };
 
 type AppComponentProps =  typeof  mapDistpatchToProps;
@@ -23,6 +25,7 @@ class App extends React.PureComponent<AppComponentProps> {
 
   public componentWillMount() {
     this.props.createDummyUsers();
+    this.props.createDummyPosts();
   }
 
   public render() {

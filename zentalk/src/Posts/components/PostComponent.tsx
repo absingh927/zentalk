@@ -13,12 +13,15 @@ class PostComponent extends React.PureComponent<PostProps>{
 
   public render() {
     console.log('post comp props:', this.props.posts);
-    if(this.props.posts.length !== 0 ) {
-      this.props.posts.map(post => {
-        this.renderPosts(post);
-      });
+    if (this.props.posts.length === 0) {
+      return this.renderNoPosts();
     }
-    return this.renderNoPosts();
+
+    return (
+      this.props.posts.map(post => {
+       return this.renderPosts(post);
+      })
+    );
   }
 
   private renderNoPosts = () => {
@@ -32,7 +35,6 @@ class PostComponent extends React.PureComponent<PostProps>{
   };
 
   private renderPosts = (post: Post) => {
-    console.log('currentpost',post);
     return (
       <Card className='m-4' key={post.id}>
         <CardBody>
