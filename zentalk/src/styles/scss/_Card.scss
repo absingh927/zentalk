@@ -17,5 +17,27 @@ $custom-card-bg-color: #cdcfd2;
     textarea, button {
       height: 75px;
     }
+
+    .newComment-textarea {
+      max-width: 90%;
+      width: 90%;
+    }
+
+    .newComment-btnPost-container {
+      max-width: 10%;
+      width: 10%;
+    }
+
+    @include media-breakpoint-down(xs) { 
+      .newComment-textarea {
+        max-width: 75%;
+        width: 75%;
+      }
+  
+      .newComment-btnPost-container {
+        max-width: 10%;
+        width: 10%;
+      }
+    }    
   }
 }

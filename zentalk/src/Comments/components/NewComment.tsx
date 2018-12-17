@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FormGroup, Input, Card, Row, Col, CardBody, Button } from 'reactstrap';
+import { FormGroup, Input, Card, Row, CardBody, Button } from 'reactstrap';
 import { createNewUserComment } from '../CommentsActions';
 import { CurrentUser } from 'src/Users/UserTypes';
 import { connect } from 'react-redux';
@@ -33,27 +33,25 @@ class NewCommentComponent extends React.PureComponent<NewCommentProps, NewCommen
       <Card className='m-1 border-0 newComment'>
         <CardBody>
           <Row>
-            <Col xs='10'>
-              <FormGroup>
-                <Input
-                  type='textarea'
-                  name='user-comment'
-                  id='user-comment-area'
-                  placeholder='write a comment'
-                  value={this.state.userComment}
-                  onChange={(e) => this.setState({userComment: e.target.value})}
-                />
-              </FormGroup>  
-            </Col>
-            <Col xs='2'>
+            <FormGroup className='newComment-textarea'>
+              <Input
+                type='textarea'
+                name='user-comment'
+                id='user-comment-area'
+                placeholder='write a comment'
+                value={this.state.userComment}
+                onChange={(e) => this.setState({userComment: e.target.value})}
+              />
+            </FormGroup> 
+            <div className='newComment-btnPost-container'>
               <Button
                 color='primary'
                 onClick={this.handlePostComment}
-                className='btn-block btn-lg'
+                className='btn-lg ml-1'
               >
                 Post
               </Button>
-            </Col>
+            </div>
           </Row>
         </CardBody>
       </Card>

@@ -6357,6 +6357,19 @@ body {
     line-height: 1.2; }
   .card .newComment textarea, .card .newComment button {
     height: 75px; }
+  .card .newComment .newComment-textarea {
+    max-width: 90%;
+    width: 90%; }
+  .card .newComment .newComment-btnPost-container {
+    max-width: 10%;
+    width: 10%; }
+  @media (max-width: 575.98px) {
+    .card .newComment .newComment-textarea {
+      max-width: 75%;
+      width: 75%; }
+    .card .newComment .newComment-btnPost-container {
+      max-width: 10%;
+      width: 10%; } }
 
 .user-icon {
   border-radius: 50%;
