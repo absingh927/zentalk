@@ -48,7 +48,10 @@ class LoginModal extends React.PureComponent<LoginModalProps, LoginModalState>{
         primaryActionText='Login'
         onActionClick={this.handleLogin}
       >
-        {this.renderUserMessage(this.props.currentUserState)}
+        {this.props.userMessage && (
+          <p className='mb-3 text-info'>{this.props.userMessage}</p>
+        )}
+        {this.renderAuthStatusMessages(this.props.currentUserState)}
         <Form>
           <FormGroup>
             <Label for="user-email">Username</Label>
@@ -83,7 +86,7 @@ class LoginModal extends React.PureComponent<LoginModalProps, LoginModalState>{
     this.props.userLogin(this.state.username, this.state.pwd);
   };
 
-  private renderUserMessage = (currentUserState: CallStates) => {
+  private renderAuthStatusMessages = (currentUserState: CallStates) => {
     if (currentUserState === Error) {
       return (
         <p className='mb-3 text-danger'>Your email or password did not match our records. Please try again.</p>
