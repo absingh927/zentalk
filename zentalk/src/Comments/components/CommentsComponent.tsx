@@ -61,7 +61,7 @@ class CommentContainer extends React.PureComponent<CommentsProps,CommentsState> 
 
     return (
       <>
-        <Card className='m-4'>
+        <Card className='m-4' >
           <CardBody className='text-center'>
             <CardText>{message}</CardText>
           </CardBody>
@@ -78,23 +78,21 @@ class CommentContainer extends React.PureComponent<CommentsProps,CommentsState> 
 
   private renderComments = (comment: Comment) => {
     return (
-      <>
-        <Card className='m-4' key={comment.comment_id}>
-          <CardBody>
-            <Row>
-              <Col xs='12'>
-                <div>
-                  <img src={comment.userInfo.avatar_url}/>
-                </div>
-                <div>
-                  <CardText>{comment.userInfo.username}</CardText>
-                  <CardText>{comment.content}</CardText>
-                </div>
-              </Col>
-            </Row>
-          </CardBody>
-        </Card>
-      </>
+      <Card className='m-4' key={comment.comment_id}>
+        <CardBody>
+          <Row>
+            <Col xs='12'>
+              <div>
+                <img src={comment.userInfo.avatar_url}/>
+              </div>
+              <div>
+                <CardText>{comment.userInfo.username}</CardText>
+                <CardText>{comment.content}</CardText>
+              </div>
+            </Col>
+          </Row>
+        </CardBody>
+      </Card>
     );
   };
 }

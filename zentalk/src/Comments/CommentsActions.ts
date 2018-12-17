@@ -2,6 +2,7 @@ import { Dispatch } from 'redux';
 import * as constants from './CommentsConstants';
 import { NewComment } from './CommentTypes';
 import { uniqueId } from 'lodash-es';
+import axios from 'axios';
 
 export const createNewUserComment = (newComment: NewComment) => (dispatch: Dispatch) => {
   const comment = {
@@ -16,3 +17,22 @@ export const createNewUserComment = (newComment: NewComment) => (dispatch: Dispa
     payload: comment,
   });
 };
+
+export const createDummyComments = () => (dispatch: Dispatch) => {
+  dispatch({type: constants.COMMENTS_LOADING});
+
+  axios.get(constants.COMMENTS_DATA_URL)
+  .then(users  => {
+    dispatch({
+      type: constants.COMMENTS_SUCCESS,
+      payload: users.data.comments,
+    });
+  })
+  .catch(error => {
+    dispatch({
+      type: constants.COMMENTS_FAIL,
+      payload: error,
+    });
+  })
+
+}

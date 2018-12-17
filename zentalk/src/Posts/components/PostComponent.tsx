@@ -55,9 +55,7 @@ class PostComponent extends React.PureComponent<PostProps>{
               <CardText>{post.content}</CardText>
             </Col>
           </Row>
-          <Row>
-            <CommentsContainer curretnPostId={post.id}/>
-          </Row>
+          <CommentsContainer curretnPostId={post.id}/>
         </CardBody>
       </Card>
     );

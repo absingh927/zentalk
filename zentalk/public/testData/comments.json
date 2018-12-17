@@ -1,0 +1,59 @@
+{
+  "comments": [
+    {
+      "comment_id": "post_0-comment_0",
+      "content": "incididunt tempor minim ad irure magna voluptate proident dolor deserunt",
+      "post_id": "post_0",
+      "userInfo": {
+        "avatar_url": "http://placehold.it/32x32",
+        "id": "users_0",
+        "logged_in": false,
+        "username": "asingh"
+      }
+    },
+    {
+      "comment_id": "post_0-comment_1",
+      "content": "incididunt ullamco laborum cillum dolor elit cillum elit officia duis",
+      "post_id": "post_0",
+      "userInfo": {
+        "avatar_url": "http://placehold.it/32x32",
+        "id": "users_1",
+        "logged_in": false,
+        "username": "nkeith"
+      }
+    },
+    {
+      "comment_id": "post_1-comment_2",
+      "content": "aute quis enim sit reprehenderit aliquip aliqua anim consequat ad",
+      "post_id": "post_1",
+      "userInfo": {
+        "avatar_url": "http://placehold.it/32x32",
+        "id": "users_2",
+        "logged_in": false,
+        "username": "srogers"
+      }
+    },
+    {
+      "comment_id": "post_2-comment_3",
+      "content": "nulla nisi officia magna eiusmod culpa eu esse eu sit",
+      "post_id": "post_2",
+      "userInfo": {
+        "avatar_url": "http://placehold.it/32x32",
+        "id": "users_3",
+        "logged_in": false,
+        "username": "mlarson"
+      }
+    },
+    {
+      "comment_id": "post_3-comment_4",
+      "content": "aliquip enim fugiat tempor laborum ea voluptate non sint exercitation",
+      "post_id": "post_3",
+      "userInfo": {
+        "avatar_url": "http://placehold.it/32x32",
+        "id": "users_5",
+        "logged_in": false,
+        "username": "tstark"
+      }
+    }
+  ]
+}
