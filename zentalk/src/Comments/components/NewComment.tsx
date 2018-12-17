@@ -69,6 +69,9 @@ class NewCommentComponent extends React.PureComponent<NewCommentProps, NewCommen
     };
     
     this.props.createNewUserComment(newComment);
+    this.setState({
+      userComment: '',
+    });
   }
 }
 export default connect(null,mapDistpatchToProps)(NewCommentComponent);

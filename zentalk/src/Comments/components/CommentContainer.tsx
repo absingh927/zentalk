@@ -4,18 +4,19 @@ import { AppState } from 'src/AppState';
 import { connect } from 'react-redux';
 import CommentsComponent from './CommentsComponent';
 import { CurrentUser } from 'src/Users/UserTypes';
+import { filter } from 'lodash-es';
 
 export type CommentContainerOwnProps = {
   curretnPostId: string,
 };
 
 type CommentContainerStateProps = {
-  currentComments: Comment[];
+  allComments: Comment[];
   currentUser: CurrentUser
 };
 
 const mapStatetoProps = (store: AppState): CommentContainerStateProps => ({
-  currentComments: store.comments.comments,
+  allComments: store.comments.comments,
   currentUser: store.users.currentUser,
 });
 
@@ -27,9 +28,11 @@ class CommentsContainer extends React.PureComponent<CommentContainerProps> {
   }
 
   public render() {
+    const filteredComments = filter( this.props.allComments,['post_id', this.props.curretnPostId]);
+    
     return (
       <CommentsComponent
-        comments={this.props.currentComments}
+        comments={filteredComments}
         currentUser={this.props.currentUser}
         currentPostId={this.props.curretnPostId}
       />

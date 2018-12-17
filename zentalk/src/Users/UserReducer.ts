@@ -5,7 +5,6 @@ import { ReducerMap } from '../helpers';
 
 export const handlers: ReducerMap<Users> = {
   [constants.DUMMY_USERS__SUCCESS]: (state: Users, action: Action<User[]>) => {
-    console.log(action.payload);
     return {
       ...state,
       users: action.payload,
