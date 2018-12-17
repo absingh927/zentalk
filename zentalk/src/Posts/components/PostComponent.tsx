@@ -3,21 +3,15 @@ import { Post } from '../PostTypes';
 import { Card, Row, Col, CardBody, CardText } from 'reactstrap';
 import VoteCounter from './VoteCounter';
 import { orderBy } from 'lodash-es';
+import CommentsContainer from '../../Comments/components/CommentContainer';
 
 type PostProps = {
   posts: Post[];
 };
 
-type PostState = {
-  sortedPosts: Post[];
-};
-
-class PostComponent extends React.PureComponent<PostProps, PostState>{
+class PostComponent extends React.PureComponent<PostProps>{
   constructor(props:PostProps) {
     super(props);
-    this.state = {
-      sortedPosts:[]
-    };
   };
 
   public render() {
@@ -58,8 +52,11 @@ class PostComponent extends React.PureComponent<PostProps, PostState>{
                 <CardText><a href='#'>{post.link}</a></CardText>
                 <CardText>number of comments</CardText>
               </div>
-              {/* <CardText>{post.content}</CardText> */}
+              <CardText>{post.content}</CardText>
             </Col>
+          </Row>
+          <Row>
+            <CommentsContainer curretnPostId={post.id}/>
           </Row>
         </CardBody>
       </Card>

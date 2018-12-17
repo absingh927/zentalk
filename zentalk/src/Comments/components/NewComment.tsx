@@ -33,7 +33,7 @@ class NewCommentComponent extends React.PureComponent<NewCommentProps, NewCommen
       <Card className='m-1' >
         <CardBody>
           <Row>
-            <Col xs='8'>
+            <Col xs='11'>
               <FormGroup>
                 <Input
                   type='textarea'
@@ -45,11 +45,13 @@ class NewCommentComponent extends React.PureComponent<NewCommentProps, NewCommen
                 />
               </FormGroup>        
             </Col>
-            <Col xs='4'>
+            <Col xs='1'>
               <Button
                 color='primary'
                 onClick={this.handlePostComment}
-              />
+              >
+                Post
+              </Button>
             </Col>
           </Row>
         </CardBody>

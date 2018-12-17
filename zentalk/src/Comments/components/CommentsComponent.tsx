@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Comment } from '../CommentTypes';
-import { Card, Row, CardBody, CardText, Col} from 'reactstrap';
+import { Card, Row, CardBody, CardText, Col, Button} from 'reactstrap';
 import NewCommentComponent from './NewComment';
 import { CurrentUser } from 'src/Users/UserTypes';
 
@@ -10,29 +10,60 @@ export type CommentsProps = {
   currentPostId: string,
 };
 
-class CommentContainer extends React.PureComponent<CommentsProps> {
+type CommentsState = {
+  isOpen: boolean;
+}
+
+class CommentContainer extends React.PureComponent<CommentsProps,CommentsState> {
   constructor(props: CommentsProps) {
     super(props);
+
+    this.state = {
+      isOpen: false,
+    }
   }
 
   public render() {
-    if (this.props.comments.length === 0) {
-      return this.renderNoComments();
-    }
-
     return (
-      this.props.comments.map(comment => {
-       return this.renderComments(comment);
-      })
+      <>
+      <Button color='link' onClick={this.handleViewMore}>View More</Button>
+      {this.state.isOpen && (
+        this.renderFields()
+      )}
+      </>
     );
   }
 
+  private handleViewMore = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+
+  private renderFields = () => {
+    if (this.props.comments.length === 0) {
+      return this.renderNoComments();
+    } else {
+      return (
+        this.props.comments.map(comment => {
+         return this.renderComments(comment);
+        })
+      );
+    }
+  };
+
   private renderNoComments = () => {
+    const message = this.props.currentUser.logged_in ?
+    'Opps, looks like nobody has posted yet! Be the first to post.' :
+    'Opps, looks like nobody has posted yet! You need to be logged in to post.';
+
     return (
       <>
         <Card className='m-4'>
           <CardBody className='text-center'>
-            <CardText>Opps, looks like nobody has posted yet! Be the first to post.</CardText>
+            <CardText>{message}</CardText>
           </CardBody>
         </Card>
         {this.props.currentUser.logged_in && (
