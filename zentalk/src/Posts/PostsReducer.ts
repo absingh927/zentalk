@@ -3,6 +3,7 @@ import { Posts, Post, VoteCounterType } from './PostTypes';
 import * as constants from './PostsConstants';
 import { ReducerMap } from '../helpers';
 import { cloneDeep, findIndex } from 'lodash-es';
+import { PostCommentUpdateType } from '../Comments/CommentTypes';
 
 export const handlers: ReducerMap<Posts> = {
   [constants.NEW_POST_SUCCESS]: (state: Posts, action: Action<Post> ) => {
@@ -12,6 +13,17 @@ export const handlers: ReducerMap<Posts> = {
       ...state,
       posts: [...state.posts, ...newPost],
       createNewPostState: Success,
+    }
+  },
+  [constants.NEW_COMMENT_POST_UPDATE]: (state: Posts, action: Action<PostCommentUpdateType>) => {
+    const clonedPosts = cloneDeep(state.posts);
+    const currentPostIndex = findIndex(clonedPosts,['id', action.payload.post_id]);
+
+    clonedPosts[currentPostIndex].comments.push(action.payload.comment_id);
+
+    return {
+      ...state,
+      posts: clonedPosts,
     }
   },
   [constants.NEW_POST_LOADING]: (state: Posts) => {
@@ -48,7 +60,7 @@ export const handlers: ReducerMap<Posts> = {
 
     return {
       ...state,
-      posts: clonedPosts
+      posts: clonedPosts,
     }
   },
   [constants.VOTE_COUNT_DOWN]: (state: Posts, action: Action<VoteCounterType>) => {
@@ -60,7 +72,7 @@ export const handlers: ReducerMap<Posts> = {
 
     return {
       ...state,
-      posts: clonedPosts
+      posts: clonedPosts,
     }
   },
 };

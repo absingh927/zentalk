@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 import PostComponent from './PostComponent';
 
 type PostContainerStateProps = {
-  currentPosts: Post[];
+  currentPosts: Post[],
 };
 
 const mapStatetoProps = (store: AppState): PostContainerStateProps => ({
-  currentPosts: store.posts.posts
+  currentPosts: store.posts.posts,
 });
 
 class PostsContainer extends React.PureComponent<PostContainerStateProps> {

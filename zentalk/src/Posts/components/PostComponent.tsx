@@ -50,7 +50,7 @@ class PostComponent extends React.PureComponent<PostProps>{
               <CardText>{post.name}</CardText>
               <div className='d-flex'>
                 <CardText><a href='#'>{post.link}</a></CardText>
-                <CardText>number of comments</CardText>
+                <CardText>{post.comments.length}{post.comments.length === 1 ? 'comment' : 'comments'}</CardText>
               </div>
               <CardText>{post.content}</CardText>
             </Col>

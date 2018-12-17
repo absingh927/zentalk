@@ -22,3 +22,8 @@ export type NewComment = {
   post_id: string;
   userInfo: CurrentUser;
 }
+
+export type PostCommentUpdateType = {
+  comment_id: string,
+  post_id: string,
+}

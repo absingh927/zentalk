@@ -90,11 +90,11 @@ class NewPostModal extends React.PureComponent<NewUserProps, NewUserState>{
 
     const newPost = {
       id: uniqueId('posts_'),
-      comments: null,
+      comments: [],
       content: this.state.postContent,
       link: this.state.postExternalLink,
       name: this.state.postName,
-      voteCount: 0
+      voteCount: 0,
     };
     
     this.props.createNewPost(newPost);

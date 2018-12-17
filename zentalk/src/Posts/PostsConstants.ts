@@ -18,4 +18,6 @@ export const defaultState: Posts = {
   createNewPostState: Loading,
 };
 
+export const NEW_COMMENT_POST_UPDATE = 'NEW_COMMENT_POST_UPDATE';
+
 export const POST_DATA_URL = 'http://localhost:3000/testData/posts.json';

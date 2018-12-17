@@ -1,5 +1,4 @@
 import { CallStates } from '../types';
-import { UserComment } from '../Comments/CommentTypes';
 
 export type Posts = {
   posts: Post[];
@@ -9,7 +8,7 @@ export type Posts = {
 
 export type Post = {
   id: string;
-  comments: UserComment[] | null;
+  comments: string[];
   content: string;
   link: string;
   name: string;
