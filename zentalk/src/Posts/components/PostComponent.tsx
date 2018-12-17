@@ -2,23 +2,33 @@ import * as React from 'react';
 import { Post } from '../PostTypes';
 import { Card, Row, Col, CardBody, CardText } from 'reactstrap';
 import VoteCounter from './VoteCounter';
+import { orderBy } from 'lodash-es';
 
 type PostProps = {
   posts: Post[];
 };
 
-class PostComponent extends React.PureComponent<PostProps>{
+type PostState = {
+  sortedPosts: Post[];
+};
+
+class PostComponent extends React.PureComponent<PostProps, PostState>{
   constructor(props:PostProps) {
     super(props);
+    this.state = {
+      sortedPosts:[]
+    };
   };
 
   public render() {
+    const sortedPosts = this.sortedPosts(this.props.posts);
+
     if (this.props.posts.length === 0) {
       return this.renderNoPosts();
     }
 
     return (
-      this.props.posts.map(post => {
+      sortedPosts.map(post => {
        return this.renderPosts(post);
       })
     );
@@ -55,6 +65,10 @@ class PostComponent extends React.PureComponent<PostProps>{
       </Card>
     );
   };
+
+  private sortedPosts = (currentPost: Post[]) => {
+    return orderBy(currentPost,'voteCount','desc');
+  }
 }
 
 export default PostComponent;
