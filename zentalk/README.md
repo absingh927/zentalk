@@ -5,6 +5,7 @@ The app automatically creates dummy data to work with that inclues, users, posts
 
 - `yarn` to install dependencies for the application.
 - `yarn start` to launch application. It will automatically open to `localhost:3000`
+  - Make sure you are in the /zentalk folder when you run `start`.
 
 - Uses Reactstrap compoents to build layout in Bootstrap 4. It uses flexbox!
 - The application is mobile friendly.
