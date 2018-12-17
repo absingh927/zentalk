@@ -30,10 +30,10 @@ class NewCommentComponent extends React.PureComponent<NewCommentProps, NewCommen
 
   public render() {
     return (
-      <Card className='m-1' >
+      <Card className='m-1 border-0 newComment'>
         <CardBody>
           <Row>
-            <Col xs='11'>
+            <Col xs='10'>
               <FormGroup>
                 <Input
                   type='textarea'
@@ -45,10 +45,11 @@ class NewCommentComponent extends React.PureComponent<NewCommentProps, NewCommen
                 />
               </FormGroup>  
             </Col>
-            <Col xs='1'>
+            <Col xs='2'>
               <Button
                 color='primary'
                 onClick={this.handlePostComment}
+                className='btn-block btn-lg'
               >
                 Post
               </Button>

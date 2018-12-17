@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Navbar, Collapse, Nav, NavItem, Button } from 'reactstrap';
 import NavbarBrand from 'reactstrap/lib/NavbarBrand';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBullseye } from '@fortawesome/free-solid-svg-icons';
+import { faBullseye, faBars } from '@fortawesome/free-solid-svg-icons';
 import { CurrentUser } from '../Users/UserTypes';
 import NavbarToggler from 'reactstrap/lib/NavbarToggler';
 import LoginModal from '../Users/components/LoginModal';
@@ -57,12 +57,12 @@ class HeaderNav extends React.PureComponent<HeaderNavProps, HeaderNavState> {
 
   private renderLoggedInNav = () => {
     return (
-      <Navbar expand='sm' className='text-info sticky-top'>
+      <Navbar expand='sm' className='text-info sticky-top justify-content-between'>
         <NavbarBrand>
           <FontAwesomeIcon icon={faBullseye}/> ZenTalk
         </NavbarBrand>
-        <NavbarToggler onClick={this.toggleNavbar}/>
-        <Collapse isOpen={this.state.isOpen} navbar={true}>
+        <NavbarToggler onClick={this.toggleNavbar} className='text-info'><FontAwesomeIcon icon={faBars}/></NavbarToggler>
+        <Collapse isOpen={this.state.isOpen} navbar={true} className='text-right mt-2'>
           <Nav navbar={true} className='ml-auto'>
             <NavItem>
               <Button

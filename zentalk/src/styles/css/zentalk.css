@@ -6355,6 +6355,8 @@ body {
     color: #6c757d;
     font-size: 1.5rem;
     line-height: 1.2; }
+  .card .newComment textarea, .card .newComment button {
+    height: 75px; }
 
 .user-icon {
   border-radius: 50%;
