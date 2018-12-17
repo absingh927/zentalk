@@ -7,7 +7,7 @@ export type UserComment = {
 
 export type Comments = {
   comments: Comment[];
-  commentsState: CallStates;
+  commentsState: CallStates | null;
 };
 
 export type Comment = {
@@ -16,3 +16,9 @@ export type Comment = {
   post_id: string;
   userInfo: CurrentUser; 
 };
+
+export type NewComment = {
+  content: string;
+  post_id: string;
+  userInfo: CurrentUser;
+}

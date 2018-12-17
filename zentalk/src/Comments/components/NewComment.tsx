@@ -1,9 +1,19 @@
 import * as React from 'react';
 import { FormGroup, Input, Card, Row, Col, CardBody, Button } from 'reactstrap';
+import { createNewUserComment } from '../CommentsActions';
+import { CurrentUser } from 'src/Users/UserTypes';
+import { connect } from 'react-redux';
 
-type NewCommentProps = {
-
+export type NewCommentOwnProps = {
+  currentUser: CurrentUser,
+  post_id: string,
 };
+
+const mapDistpatchToProps = {
+  createNewUserComment,
+};
+
+type NewCommentProps = NewCommentOwnProps & typeof mapDistpatchToProps;
 
 type NewCommentState = {
   userComment: string,
@@ -50,7 +60,13 @@ class NewCommentComponent extends React.PureComponent<NewCommentProps, NewCommen
   private handlePostComment = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
-    console.log(this.state.userComment);
+    let newComment = {
+      content: this.state.userComment,
+      post_id: this.props.post_id,
+      userInfo: this.props.currentUser,
+    };
+    
+    this.props.createNewUserComment(newComment);
   }
 }
-export default NewCommentComponent;
+export default connect(null,mapDistpatchToProps)(NewCommentComponent);

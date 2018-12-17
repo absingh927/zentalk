@@ -11,13 +11,13 @@ export const handlers: ReducerMap<Posts> = {
     return {
       ...state,
       posts: [...state.posts, ...newPost],
-      createNewPostState: Success
+      createNewPostState: Success,
     }
   },
   [constants.NEW_POST_LOADING]: (state: Posts) => {
     return {
       ...state,
-      createNewPostState: Loading
+      createNewPostState: Loading,
     }
   },
   [constants.POSTS_LOADING]: (state: Posts) => {
