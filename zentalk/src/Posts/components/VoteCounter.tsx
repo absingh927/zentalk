@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faCaretUp} from '@fortawesome/free-solid-svg-icons';
-import { CardText } from 'reactstrap';
 import { voteCounter } from '../PostsActions';
 import { connect } from 'react-redux';
 import { AppState } from 'src/AppState';
@@ -35,14 +34,14 @@ class VoteCounter extends React.PureComponent<VoteCounterProps> {
 
   public render() {
     return (
-      <div>
-        <CardText onClick={(e) => this.handleVoteClick('up')}>
+      <div className='voteCounter'>
+        <p className='m-0' onClick={(e) => this.handleVoteClick('up')}>
           <FontAwesomeIcon icon={faCaretUp}/>
-        </CardText>
-        <CardText>{this.props.currentCount}</CardText>
-        <CardText onClick={(e) => this.handleVoteClick('down')}>
+        </p>
+        <p className='m-0 mt-1 mb-1'>{this.props.currentCount}</p>
+        <p className='m-0' onClick={(e) => this.handleVoteClick('down')}>
           <FontAwesomeIcon icon={faCaretDown}/>
-        </CardText>
+        </p>
       </div>
     );
   }

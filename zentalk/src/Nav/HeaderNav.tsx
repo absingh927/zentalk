@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Navbar, Collapse, Nav, NavItem, Button } from 'reactstrap';
 import NavbarBrand from 'reactstrap/lib/NavbarBrand';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBicycle } from '@fortawesome/free-solid-svg-icons';
+import { faBullseye } from '@fortawesome/free-solid-svg-icons';
 import { CurrentUser } from '../Users/UserTypes';
 import NavbarToggler from 'reactstrap/lib/NavbarToggler';
 import LoginModal from '../Users/components/LoginModal';
@@ -40,9 +40,9 @@ class HeaderNav extends React.PureComponent<HeaderNavProps, HeaderNavState> {
 
   private renderDefaultNav = () => {
     return (
-      <Navbar color='info' expand='sm' className='text-light'>
+      <Navbar expand='sm' className='text-info sticky-top'>
         <NavbarBrand>
-          <FontAwesomeIcon icon={faBicycle}/> ZenTalk
+          <FontAwesomeIcon icon={faBullseye}/> ZenTalk
         </NavbarBrand>
         <Button
           color='primary'
@@ -57,9 +57,9 @@ class HeaderNav extends React.PureComponent<HeaderNavProps, HeaderNavState> {
 
   private renderLoggedInNav = () => {
     return (
-      <Navbar color='success' expand='sm' className='text-light'>
+      <Navbar expand='sm' className='text-info sticky-top'>
         <NavbarBrand>
-          <FontAwesomeIcon icon={faBicycle}/> ZenTalk
+          <FontAwesomeIcon icon={faBullseye}/> ZenTalk
         </NavbarBrand>
         <NavbarToggler onClick={this.toggleNavbar}/>
         <Collapse isOpen={this.state.isOpen} navbar={true}>

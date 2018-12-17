@@ -36,6 +36,7 @@ class App extends React.PureComponent<AppComponentProps> {
   }
 
   public componentWillMount() {
+    // calls to fetch all dummy data
     this.props.createDummyUsers();
     this.props.createDummyPosts();
     this.props.createDummyComments();

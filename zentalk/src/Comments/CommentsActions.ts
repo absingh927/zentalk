@@ -12,10 +12,12 @@ export const createNewUserComment = (newComment: NewComment) => (dispatch: Dispa
     post_id: newComment.post_id,
     userInfo: newComment.userInfo,
   };
+  // disptach to comments reducer for adding new user comment
   dispatch({
     type: constants.NEW_COMMENT_SUCCESS,
     payload: comment,
   });
+  // dispatch to posts reducer to add new comment data to posts
   dispatch({
     type: NEW_COMMENT_POST_UPDATE,
     payload: comment,

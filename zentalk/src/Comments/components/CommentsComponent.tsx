@@ -26,7 +26,9 @@ class CommentContainer extends React.PureComponent<CommentsProps,CommentsState >
   public render() {
     return (
       <>
-      <Button color='link' onClick={this.handleViewMore}>View More</Button>
+      <div className='text-center'>
+        <Button color='link' onClick={this.handleViewMore}>View More</Button>
+      </div>
       {this.state.isOpen && (
         this.renderFields()
       )}

@@ -1,0 +1,15 @@
+$custom-card-bg-color: #cdcfd2;
+.card {
+  background-color: $custom-card-bg-color;
+
+  &-text {
+    font-size: $font-size-base * .88;
+    color: $gray-600;
+  }
+
+  .voteCounter {
+    color: $gray-600;
+    font-size: $font-size-base * 1.5;
+    line-height: 1.2;
+  }
+}

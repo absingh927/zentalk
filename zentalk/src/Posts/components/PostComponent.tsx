@@ -43,19 +43,23 @@ class PostComponent extends React.PureComponent<PostProps >{
       <Card className='m-4' key={post.name}>
         <CardBody>
           <Row>
-            <Col xs='2'>
+            <Col xs='1' className='align-self-center text-center'>
               <VoteCounter postid={post.id} currentCount={post.voteCount} />
             </Col>
-            <Col xs='10'>
-              <CardText>{post.name}</CardText>
-              <div className='d-flex'>
-                <CardText><a href='#'>{post.link}</a></CardText>
-                <CardText>{post.comments.length}{post.comments.length === 1 ? 'comment' : 'comments'}</CardText>
+            <Col xs='11'>
+              <h5 className='m-0'>{post.name}</h5>
+              <div className='d-flex justify-content-between'>
+                <CardText className='m-0'><a href={post.link} target='_blank'>{post.link}</a></CardText>
+                <CardText className='m-0'>{post.comments.length}{post.comments.length === 1 ? ' comment' : ' comments'}</CardText>
               </div>
-              <CardText>{post.content}</CardText>
+              <CardText className='mt-2'>{post.content}</CardText>
             </Col>
           </Row>
-          <CommentsContainer curretnPostId={post.id}/>
+          <Row>
+            <Col xs='12'>
+              <CommentsContainer curretnPostId={post.id}/>
+            </Col>
+          </Row>
         </CardBody>
       </Card>
     );

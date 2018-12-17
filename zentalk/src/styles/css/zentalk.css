@@ -6315,7 +6315,8 @@ a.text-dark:hover, a.text-dark:focus {
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif; }
+  font-family: sans-serif;
+  background-color: #adb5bd; }
 
 .App {
   text-align: center; }
@@ -6341,3 +6342,16 @@ body {
     transform: rotate(0deg); }
   to {
     transform: rotate(360deg); } }
+
+.navbar {
+  background-color: #e9ecef; }
+
+.card {
+  background-color: #cdcfd2; }
+  .card-text {
+    font-size: 0.88rem;
+    color: #6c757d; }
+  .card .voteCounter {
+    color: #6c757d;
+    font-size: 1.5rem;
+    line-height: 1.2; }
