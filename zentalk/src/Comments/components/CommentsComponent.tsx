@@ -47,9 +47,17 @@ class CommentContainer extends React.PureComponent<CommentsProps,CommentsState> 
       return this.renderNoComments();
     } else {
       return (
-        this.props.comments.map(comment => {
-         return this.renderComments(comment);
-        })
+        <>
+          {this.props.comments.map(comment => {
+          return this.renderComments(comment);
+          })}
+          {this.props.currentUser.logged_in && (
+          <NewCommentComponent
+            currentUser={this.props.currentUser}
+            post_id={this.props.currentPostId}
+          />
+        )}
+        </>
       );
     }
   };
