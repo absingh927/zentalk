@@ -29,3 +29,24 @@ export const createDummyPosts = () => (dispatch: Dispatch) => {
     });
   })
 };
+
+export const voteCounter = (voteType: string, postId: string, currentCount: number) => (dispatch: Dispatch) => {
+  if (voteType === 'up') {
+    dispatch({
+      type: constants.VOTE_COUNT_UP,
+      payload: {
+        postid: postId,
+        currentCount: currentCount,
+      }
+    });
+  } else if ( voteType === 'down') {
+    dispatch({
+      type: constants.VOTE_COUNT_DOWN,
+      payload: {
+        postid: postId,
+        currentCount: currentCount,
+      }
+    });
+  }
+  return;
+};

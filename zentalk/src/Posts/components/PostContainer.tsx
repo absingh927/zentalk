@@ -6,7 +6,7 @@ import PostComponent from './PostComponent';
 
 type PostContainerStateProps = {
   currentPosts: Post[];
-}
+};
 
 const mapStatetoProps = (store: AppState): PostContainerStateProps => ({
   currentPosts: store.posts.posts
@@ -18,8 +18,6 @@ class PostsContainer extends React.PureComponent<PostContainerStateProps> {
   }
 
   public render() {
-    console.log('currentposts',this.props.currentPosts);
-
     return (
       <PostComponent posts={this.props.currentPosts}/>
     );

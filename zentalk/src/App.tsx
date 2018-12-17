@@ -1,15 +1,10 @@
 import * as React from 'react';
-// import { Posts } from './types';
 import HeaderNavContainer from './Nav/HeaderNavContainer';
 import { connect } from 'react-redux';
 import { createDummyUsers } from './Users/UserActions';
 import PostContainer from './Posts/components/PostContainer';
 import { ModalManager } from './shared/ModalManager/ModalManager';
 import { createDummyPosts } from './Posts/PostsActions';
-
-// type AppComponentMapState = {
-//   posts: Posts;
-// };
 
 const mapDistpatchToProps = {
   createDummyUsers,

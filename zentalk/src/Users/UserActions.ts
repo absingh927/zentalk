@@ -38,14 +38,14 @@ export const userLogin = (username: string, password: string) => (dispatch: Disp
       payload: userData
     });
   }
-}
+};
 
 export const userLogout = () => (dispatch: Dispatch) => {
   dispatch({
     type: constants.USER_LOGOUT_SUCCESS,
     payload: currentUserDefaultState
   });
-}
+};
 
 export const createAccountandLogInUser = (username: string, password: string) => (dispatch: Dispatch, getState: () => AppState) => {
   dispatch({type: constants.NEW_USER_CREATE_LOADING});
@@ -68,4 +68,4 @@ export const createAccountandLogInUser = (username: string, password: string) =>
   else {
     dispatch({type: constants.USER_AUTH_FAIL});
   }
-}
+};

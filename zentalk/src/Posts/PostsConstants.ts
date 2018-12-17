@@ -9,6 +9,9 @@ export const NEW_POST_LOADING = 'NEW_POST_LOADING';
 export const NEW_POST_SUCCESS = 'NEW_POST_SUCCESS';
 export const NEW_POST_FAIL = 'NEW_POST_FAIL';
 
+export const VOTE_COUNT_UP = 'VOTE_COUNT_UP';
+export const VOTE_COUNT_DOWN = 'VOTE_COUNT_DOWN';
+
 export const defaultState: Posts = {
   posts: [],
   postsState: Loading,

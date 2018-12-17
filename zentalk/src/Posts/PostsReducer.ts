@@ -1,7 +1,8 @@
 import { Action, Success, Loading } from '../types';
-import { Posts, Post } from './PostTypes';
+import { Posts, Post, VoteCounterType } from './PostTypes';
 import * as constants from './PostsConstants';
 import { ReducerMap } from '../helpers';
+import { cloneDeep, findIndex } from 'lodash-es';
 
 export const handlers: ReducerMap<Posts> = {
   [constants.NEW_POST_SUCCESS]: (state: Posts, action: Action<Post> ) => {
@@ -32,11 +33,34 @@ export const handlers: ReducerMap<Posts> = {
     };
   },
   [constants.POSTS_SUCCESS]: (state: Posts, action: Action<Post[]>) => {
-    console.log(action.payload);
     return {
       ...state,
       posts: action.payload,
       postsState: Success,
+    }
+  },
+  [constants.VOTE_COUNT_UP]: (state: Posts, action: Action<VoteCounterType>) => {
+    const clonedPosts= cloneDeep(state.posts);
+    const currentPostIndex = findIndex(clonedPosts,['id', action.payload.postid]);
+    let currentCount = action.payload.currentCount;
+
+    clonedPosts[currentPostIndex].voteCount = (currentCount + 1);
+
+    return {
+      ...state,
+      posts: clonedPosts
+    }
+  },
+  [constants.VOTE_COUNT_DOWN]: (state: Posts, action: Action<VoteCounterType>) => {
+    const clonedPosts= cloneDeep(state.posts);
+    const currentPostIndex = findIndex(clonedPosts,['id', action.payload.postid]);
+    let currentCount = action.payload.currentCount;
+
+    clonedPosts[currentPostIndex].voteCount = (currentCount - 1);
+
+    return {
+      ...state,
+      posts: clonedPosts
     }
   },
 };

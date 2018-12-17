@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Post } from '../PostTypes';
 import { Card, Row, Col, CardBody, CardText } from 'reactstrap';
-
+import VoteCounter from './VoteCounter';
 type PostProps = {
   posts: Post[];
 }
@@ -12,7 +12,6 @@ class PostComponent extends React.PureComponent<PostProps>{
   }
 
   public render() {
-    console.log('post comp props:', this.props.posts);
     if (this.props.posts.length === 0) {
       return this.renderNoPosts();
     }
@@ -36,13 +35,13 @@ class PostComponent extends React.PureComponent<PostProps>{
 
   private renderPosts = (post: Post) => {
     return (
-      <Card className='m-4' key={post.id}>
+      <Card className='m-4' key={post.name}>
         <CardBody>
           <Row>
-            <Col xs='1'>
-              <CardText>voteCount</CardText>
+            <Col xs='2'>
+              <VoteCounter postid={post.id} currentCount={post.voteCount} />
             </Col>
-            <Col xs='11'>
+            <Col xs='10'>
               <CardText>{post.name}</CardText>
               <div className='d-flex'>
                 <CardText><a href='#'>{post.link}</a></CardText>

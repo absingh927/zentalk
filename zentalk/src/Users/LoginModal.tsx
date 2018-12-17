@@ -13,7 +13,7 @@ export type LoginModalOwnProps = {
   currentUserState: CallStates;
 };
 
-const mapDistpatchToProps = {
+const mapDispatchToProps = {
   userLogin,
   hideModal,
   showModal,
@@ -23,7 +23,7 @@ const mapStateToProps = (store: AppState): LoginModalOwnProps => ({
   currentUserState: store.users.curretUserState,
 });
 
-type LoginModalProps = LoginModalOwnProps & typeof mapDistpatchToProps;
+type LoginModalProps = LoginModalOwnProps & typeof mapDispatchToProps;
 
 type LoginModalState = {
   username: string,
@@ -102,4 +102,4 @@ class LoginModal extends React.PureComponent<LoginModalProps, LoginModalState>{
   }
 }
 
-export default connect(mapStateToProps, mapDistpatchToProps)(LoginModal);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginModal);
