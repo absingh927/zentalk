@@ -14,16 +14,16 @@ export type Comment = {
   comment_id: string;
   content: string;
   post_id: string;
-  userInfo: CurrentUser; 
+  userInfo: CurrentUser;
 };
 
 export type NewComment = {
   content: string;
   post_id: string;
   userInfo: CurrentUser;
-}
+};
 
 export type PostCommentUpdateType = {
-  comment_id: string,
-  post_id: string,
-}
+  comment_id: string;
+  post_id: string;
+};

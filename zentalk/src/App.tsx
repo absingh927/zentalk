@@ -8,7 +8,7 @@ import { createDummyPosts } from './Posts/PostsActions';
 import { createDummyComments } from './Comments/CommentsActions';
 import { AppState } from './AppState';
 import { CallStates, Loading } from './types';
-import LoadingState  from './shared/LoadingState';
+import LoadingState from './shared/LoadingState';
 
 const mapDistpatchToProps = {
   createDummyUsers,
@@ -17,10 +17,10 @@ const mapDistpatchToProps = {
 };
 
 type AppComponentStateProps = {
-  usersStatus: CallStates,
-  commentsStatus: CallStates,
-  postsStatus: CallStates,
-}
+  usersStatus: CallStates;
+  commentsStatus: CallStates;
+  postsStatus: CallStates;
+};
 
 const mapStateToProps = (store: AppState): AppComponentStateProps => ({
   usersStatus: store.users.usersState,
@@ -31,7 +31,7 @@ const mapStateToProps = (store: AppState): AppComponentStateProps => ({
 type AppComponentProps = AppComponentStateProps & typeof  mapDistpatchToProps;
 
 class App extends React.PureComponent<AppComponentProps> {
-  constructor(props: AppComponentProps){
+  constructor(props: AppComponentProps ){
     super(props);
   }
 
@@ -52,7 +52,7 @@ class App extends React.PureComponent<AppComponentProps> {
 
   private renderMain = () => {
     if ((this.props.commentsStatus && this.props.postsStatus && this.props.usersStatus) === Loading) {
-      return <LoadingState/>
+      return <LoadingState/>;
     }
     return (
       <>
@@ -63,4 +63,4 @@ class App extends React.PureComponent<AppComponentProps> {
   }
 }
 
-export default connect(mapStateToProps,mapDistpatchToProps)(App);
+export default connect(mapStateToProps, mapDistpatchToProps)(App);

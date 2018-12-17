@@ -7,12 +7,12 @@ import { CurrentUser } from 'src/Users/UserTypes';
 import { filter } from 'lodash-es';
 
 export type CommentContainerOwnProps = {
-  curretnPostId: string,
+  curretnPostId: string;
 };
 
 type CommentContainerStateProps = {
   allComments: Comment[];
-  currentUser: CurrentUser
+  currentUser: CurrentUser;
 };
 
 const mapStatetoProps = (store: AppState): CommentContainerStateProps => ({
@@ -28,8 +28,7 @@ class CommentsContainer extends React.PureComponent<CommentContainerProps> {
   }
 
   public render() {
-    const filteredComments = filter( this.props.allComments,['post_id', this.props.curretnPostId]);
-    
+    const filteredComments = filter( this.props.allComments, ['post_id', this.props.curretnPostId]);
     return (
       <CommentsComponent
         comments={filteredComments}
@@ -37,7 +36,7 @@ class CommentsContainer extends React.PureComponent<CommentContainerProps> {
         currentPostId={this.props.curretnPostId}
       />
     );
-  };
+  }
 }
 
 export default connect(mapStatetoProps, null)(CommentsContainer);

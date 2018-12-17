@@ -9,10 +9,10 @@ type PostProps = {
   posts: Post[];
 };
 
-class PostComponent extends React.PureComponent<PostProps>{
-  constructor(props:PostProps) {
+class PostComponent extends React.PureComponent<PostProps >{
+  constructor(props: PostProps) {
     super(props);
-  };
+  }
 
   public render() {
     const sortedPosts = this.sortedPosts(this.props.posts);
@@ -22,7 +22,7 @@ class PostComponent extends React.PureComponent<PostProps>{
     }
 
     return (
-      sortedPosts.map(post => {
+      sortedPosts.map((post) => {
        return this.renderPosts(post);
       })
     );
@@ -36,7 +36,7 @@ class PostComponent extends React.PureComponent<PostProps>{
         </CardBody>
       </Card>
     );
-  };
+  }
 
   private renderPosts = (post: Post) => {
     return (
@@ -59,10 +59,10 @@ class PostComponent extends React.PureComponent<PostProps>{
         </CardBody>
       </Card>
     );
-  };
+  }
 
   private sortedPosts = (currentPost: Post[]) => {
-    return orderBy(currentPost,'voteCount','desc');
+    return orderBy(currentPost, 'voteCount', 'desc');
   }
 }
 

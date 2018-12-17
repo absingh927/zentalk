@@ -16,18 +16,18 @@ export const createDummyPosts = () => (dispatch: Dispatch) => {
   dispatch({type: constants.POSTS_LOADING});
 
   axios.get(constants.POST_DATA_URL)
-  .then(users  => {
+  .then((users)  => {
     dispatch({
       type: constants.POSTS_SUCCESS,
       payload: users.data.posts,
     });
   })
-  .catch(error => {
+  .catch((error) => {
     dispatch({
       type: constants.NEW_POST_FAIL,
       payload: error,
     });
-  })
+  });
 };
 
 export const voteCounter = (voteType: string, postId: string, currentCount: number) => (dispatch: Dispatch) => {
@@ -37,7 +37,7 @@ export const voteCounter = (voteType: string, postId: string, currentCount: numb
       payload: {
         postid: postId,
         currentCount: currentCount,
-      }
+      },
     });
   } else if ( voteType === 'down') {
     dispatch({
@@ -45,7 +45,7 @@ export const voteCounter = (voteType: string, postId: string, currentCount: numb
       payload: {
         postid: postId,
         currentCount: currentCount,
-      }
+      },
     });
   }
   return;

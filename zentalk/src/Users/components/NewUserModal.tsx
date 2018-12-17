@@ -23,16 +23,16 @@ const mapStateToProps = (store: AppState): NewUserOwnProps => ({
 type NewUserProps = NewUserOwnProps & typeof mapDistpatchToProps;
 
 type NewUserState = {
-  username: string,
-  pwd: string,
+  username: string;
+  pwd: string;
 };
 
-class NewUser extends React.PureComponent<NewUserProps, NewUserState>{
+class NewUser extends React.PureComponent<NewUserProps, NewUserState >{
   constructor(props: NewUserProps) {
     super(props);
 
     this.state = {
-      username:'',
+      username: '',
       pwd: '',
     };
   }
@@ -48,23 +48,23 @@ class NewUser extends React.PureComponent<NewUserProps, NewUserState>{
         {this.renderUserMessage(this.props.currentUserState)}
         <Form>
           <FormGroup>
-            <Label for="username">Username</Label>
+            <Label for='username'>Username</Label>
             <Input
-              type="text"
-              name="username"
-              value={this.state.username} 
-              onChange={e => this.setState({username: e.target.value})} 
-              placeholder="Enter your username"
+              type='text'
+              name='username'
+              value={this.state.username}
+              onChange={(e) => this.setState({username: e.target.value})}
+              placeholder='Enter your username'
             />
           </FormGroup>
           <FormGroup>
-            <Label for="user-pwd">Password</Label>
+            <Label for='user-pwd'>Password</Label>
             <Input
-              type="password"
-              name="password"
+              type='password'
+              name='password'
               value={this.state.pwd}
-              onChange={e => this.setState({pwd: e.target.value})} 
-              placeholder="Enter your password"
+              onChange={(e) => this.setState({pwd: e.target.value})} 
+              placeholder='Enter your password'
             />
           </FormGroup>
         </Form>
@@ -74,10 +74,8 @@ class NewUser extends React.PureComponent<NewUserProps, NewUserState>{
 
   private handlecreateAccountandLogInUser = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    
     this.props.createAccountandLogInUser(this.state.username, this.state.pwd);
-    console.log(this.state.username, this.state.pwd);
-  };
+  }
 
   private renderUserMessage = (currentUserState: CallStates) => {
     if (currentUserState === Error) {
@@ -91,7 +89,7 @@ class NewUser extends React.PureComponent<NewUserProps, NewUserState>{
       );
     }
     return;
-  };
+  }
 }
 
 export default connect(mapStateToProps, mapDistpatchToProps)(NewUser);

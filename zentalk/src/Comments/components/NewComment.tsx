@@ -5,8 +5,8 @@ import { CurrentUser } from 'src/Users/UserTypes';
 import { connect } from 'react-redux';
 
 export type NewCommentOwnProps = {
-  currentUser: CurrentUser,
-  post_id: string,
+  currentUser: CurrentUser;
+  post_id: string;
 };
 
 const mapDistpatchToProps = {
@@ -16,17 +16,17 @@ const mapDistpatchToProps = {
 type NewCommentProps = NewCommentOwnProps & typeof mapDistpatchToProps;
 
 type NewCommentState = {
-  userComment: string,
-}
+  userComment: string;
+};
 
 class NewCommentComponent extends React.PureComponent<NewCommentProps, NewCommentState> {
   constructor(props: NewCommentProps) {
     super(props);
 
     this.state = {
-      userComment: ''
+      userComment: '',
     };
-  };
+  }
 
   public render() {
     return (
@@ -40,10 +40,10 @@ class NewCommentComponent extends React.PureComponent<NewCommentProps, NewCommen
                   name='user-comment'
                   id='user-comment-area'
                   placeholder='write a comment'
-                  value={this.state.userComment} 
-                  onChange={e => this.setState({userComment: e.target.value})}     
+                  value={this.state.userComment}
+                  onChange={(e) => this.setState({userComment: e.target.value})}
                 />
-              </FormGroup>        
+              </FormGroup>  
             </Col>
             <Col xs='1'>
               <Button
@@ -61,17 +61,15 @@ class NewCommentComponent extends React.PureComponent<NewCommentProps, NewCommen
   
   private handlePostComment = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-
-    let newComment = {
+    const newComment = {
       content: this.state.userComment,
       post_id: this.props.post_id,
       userInfo: this.props.currentUser,
     };
-    
     this.props.createNewUserComment(newComment);
     this.setState({
       userComment: '',
     });
   }
 }
-export default connect(null,mapDistpatchToProps)(NewCommentComponent);
+export default connect(null, mapDistpatchToProps)(NewCommentComponent);

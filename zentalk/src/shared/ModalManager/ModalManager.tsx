@@ -15,7 +15,7 @@ class ModalManagerComponent extends React.PureComponent<ModalManagerState> {
 
 export const ModalManager = connect(
   (state: { modalManager: ModalManagerState }) => state.modalManager,
-  {}
+  {},
 )(ModalManagerComponent);
 
 export default ModalManager;

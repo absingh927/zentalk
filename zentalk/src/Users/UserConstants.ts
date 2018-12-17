@@ -21,11 +21,11 @@ export const DUMMY_USERS__FAIL = 'DUMMY_USERS_FAIL';
 
 export const defaultState: Users = {
   users: [],
-  currentUser: currentUserDefaultState, 
+  currentUser: currentUserDefaultState,
   usersState: Loading,
   curretUserState: Loading,
   newUserState: Loading,
 };
 
-export const USER_DATA_URL = 'http://localhost:3000/testData/users.json'
-export const USER_AVATAR_URL='http://placehold.it/64x64';
+export const USER_DATA_URL = 'http://localhost:3000/testData/users.json';
+export const USER_AVATAR_URL = 'http://placehold.it/64x64';

@@ -9,7 +9,7 @@ import { hideModal, showModal } from '../../shared/ModalManager/ModalManagerActi
 import NewUserModal from './NewUserModal';
 
 type LoginModalOwnProps = {
-  userMessage?: string,
+  userMessage?: string;
   currentUserState: CallStates;
 };
 
@@ -26,19 +26,19 @@ const mapStateToProps = (store: AppState): LoginModalOwnProps => ({
 type LoginModalProps = LoginModalOwnProps & typeof mapDispatchToProps;
 
 type LoginModalState = {
-  username: string,
-  pwd: string,
+  username: string;
+  pwd: string;
 };
 
-class LoginModal extends React.PureComponent<LoginModalProps, LoginModalState>{
+class LoginModal extends React.PureComponent<LoginModalProps, LoginModalState >{
   constructor(props: LoginModalProps) {
     super(props);
 
     this.state = {
-      username:'',
+      username: '',
       pwd: '',
     };
-  };
+  }
 
   public render() {
     return (
@@ -54,23 +54,23 @@ class LoginModal extends React.PureComponent<LoginModalProps, LoginModalState>{
         {this.renderAuthStatusMessages(this.props.currentUserState)}
         <Form>
           <FormGroup>
-            <Label for="user-email">Username</Label>
+            <Label for='user-email'>Username</Label>
             <Input
-              type="text"
-              name="username"
-              value={this.state.username} 
-              onChange={e => this.setState({username: e.target.value})} 
-              placeholder="Enter your username"
+              type='text'
+              name='username'
+              value={this.state.username}
+              onChange={(e) => this.setState({username: e.target.value})}
+              placeholder='Enter your username'
             />
           </FormGroup>
           <FormGroup>
-            <Label for="user-pwd">Password</Label>
+            <Label for='user-pwd'>Password</Label>
             <Input
-              type="password"
-              name="password"
+              type='password'
+              name='password'
               value={this.state.pwd}
-              onChange={e => this.setState({pwd: e.target.value})} 
-              placeholder="Enter your password"
+              onChange={(e) => this.setState({pwd: e.target.value})}
+              placeholder='Enter your password'
             />
           </FormGroup>
         </Form>
@@ -84,7 +84,7 @@ class LoginModal extends React.PureComponent<LoginModalProps, LoginModalState>{
   private handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     this.props.userLogin(this.state.username, this.state.pwd);
-  };
+  }
 
   private renderAuthStatusMessages = (currentUserState: CallStates) => {
     if (currentUserState === Error) {
@@ -98,10 +98,10 @@ class LoginModal extends React.PureComponent<LoginModalProps, LoginModalState>{
       );
     }
     return;
-  };
+  }
 
   private showCreateAccoutModal = () => {
-    this.props.showModal(NewUserModal,{});
+    this.props.showModal(NewUserModal, {});
   }
 }
 

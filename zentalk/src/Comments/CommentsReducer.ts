@@ -5,13 +5,13 @@ import { ReducerMap } from '../helpers';
 
 export const handlers: ReducerMap<Comments> = {
   [constants.NEW_COMMENT_SUCCESS]: (state: Comments, action: Action<Comment> ) => {
-    let newComment = [];
+    const newComment = [];
     newComment.push(action.payload);
     return {
       ...state,
       comments: [...state.comments, ...newComment],
       commentsState: Success,
-    }
+    };
   },
   [constants.COMMENTS_LOADING]: (state: Comments) => {
     return {
@@ -29,9 +29,9 @@ export const handlers: ReducerMap<Comments> = {
     return {
       ...state,
       comments: action.payload,
-      commentsState: Success
-    }
-  }
+      commentsState: Success,
+    };
+  },
 };
 
 export function comments(state: Comments = constants.defaultState, action: Action<any>) {

@@ -9,17 +9,17 @@ const reducers: ReducerMap<ModalManagerState> = {
     return {
       ...state,
       modalType: action.payload.modalType,
-      modalProps: action.payload.modalProps
+      modalProps: action.payload.modalProps,
     };
   },
   [HIDE_MODAL]: (state: ModalManagerState, action: ActionWithoutPayload) => {
     return defaultState;
-  }
+  },
 };
 
 const defaultState: ModalManagerState = {
   modalProps: null,
-  modalType: null
+  modalType: null,
 };
 
 export function reducer(state: ModalManagerState = defaultState, action: Action<any>) {

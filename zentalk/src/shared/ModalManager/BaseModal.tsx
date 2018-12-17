@@ -13,7 +13,7 @@ export type BaseModalProps = {
 };
 
 const mapDispatchToProps = {
-  hideModal
+  hideModal,
 };
 
 class BaseModal extends React.PureComponent<BaseModalProps & typeof mapDispatchToProps> {

@@ -18,4 +18,4 @@ export type Post = {
 export type VoteCounterType = {
   postid: string;
   currentCount: number;
-}
+};

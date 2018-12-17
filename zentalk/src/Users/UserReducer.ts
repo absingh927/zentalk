@@ -11,13 +11,13 @@ export const handlers: ReducerMap<Users> = {
       usersState: Success,
     };
   },
-  [constants.DUMMY_USERS_LOADING]: (state:Users) => {
+  [constants.DUMMY_USERS_LOADING]: (state: Users) => {
     return {
       ...state,
       usersState: Loading,
     };
   },
-  [constants.DUMMY_USERS__FAIL]: (state:Users) => {
+  [constants.DUMMY_USERS__FAIL]: (state: Users) => {
     return {
       ...state,
       usersState: Error,
@@ -26,7 +26,7 @@ export const handlers: ReducerMap<Users> = {
   [constants.USER_AUTH_LOADING]: (state: Users) => {
     return {
       ...state,
-      curretUserState:Loading
+      curretUserState: Loading,
     };
   },
   [constants.USER_AUTH_FAIL]: (state: Users) => {
@@ -44,10 +44,10 @@ export const handlers: ReducerMap<Users> = {
         logged_in: true,
         username: action.payload.username,
       },
-      curretUserState: Success
+      curretUserState: Success,
     };
   },
-  [constants.USER_LOGOUT_SUCCESS]:(state:Users) => {
+  [constants.USER_LOGOUT_SUCCESS]: (state: Users) => {
     return {
       ...state,
       currentUser: currentUserDefaultState,
@@ -60,14 +60,14 @@ export const handlers: ReducerMap<Users> = {
       newUserState: Error,
     };
   },
-  [constants.NEW_USER_CREATE_LOADING]: (state:Users) => {
+  [constants.NEW_USER_CREATE_LOADING]: (state: Users) => {
     return {
       ...state,
       newUserState: Loading,
     };
   },
-  [constants.NEW_USER_CREATE_SUCCESS]: (state:Users, action: Action<User>) => {
-    let newUser = [];
+  [constants.NEW_USER_CREATE_SUCCESS]: (state: Users, action: Action<User>) => {
+    const newUser = [];
     newUser.push(action.payload);
 
     return {
@@ -77,12 +77,12 @@ export const handlers: ReducerMap<Users> = {
         avatar_url: action.payload.avatar_url,
         id: action.payload.id,
         logged_in: true,
-        username: action.payload.username
+        username: action.payload.username,
       },
       curretUserState: Success,
       newUserState: Success,
     };
-  }
+  },
 };
 
 export function users(state: Users = constants.defaultState, action: Action<any>) {

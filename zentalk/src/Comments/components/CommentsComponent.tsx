@@ -5,22 +5,22 @@ import NewCommentComponent from './NewComment';
 import { CurrentUser } from 'src/Users/UserTypes';
 
 export type CommentsProps = {
-  comments: Comment[],
-  currentUser: CurrentUser,
-  currentPostId: string,
+  comments: Comment[];
+  currentUser: CurrentUser;
+  currentPostId: string;
 };
 
 type CommentsState = {
   isOpen: boolean;
-}
+};
 
-class CommentContainer extends React.PureComponent<CommentsProps,CommentsState> {
+class CommentContainer extends React.PureComponent<CommentsProps,CommentsState > {
   constructor(props: CommentsProps) {
     super(props);
 
     this.state = {
       isOpen: false,
-    }
+    };
   }
 
   public render() {
@@ -38,7 +38,7 @@ class CommentContainer extends React.PureComponent<CommentsProps,CommentsState> 
     e.preventDefault();
 
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !this.state.isOpen,
     });
   }
 
@@ -48,7 +48,7 @@ class CommentContainer extends React.PureComponent<CommentsProps,CommentsState> 
     } else {
       return (
         <>
-          {this.props.comments.map(comment => {
+          {this.props.comments.map((comment) => {
             return this.renderComments(comment);
           })}
           {this.props.currentUser.logged_in && (
@@ -60,7 +60,7 @@ class CommentContainer extends React.PureComponent<CommentsProps,CommentsState> 
         </>
       );
     }
-  };
+  }
 
   private renderNoComments = () => {
     const message = this.props.currentUser.logged_in ?
@@ -82,7 +82,7 @@ class CommentContainer extends React.PureComponent<CommentsProps,CommentsState> 
         )}
       </>
     );
-  };
+  }
 
   private renderComments = (comment: Comment) => {
     return (
@@ -102,7 +102,7 @@ class CommentContainer extends React.PureComponent<CommentsProps,CommentsState> 
         </CardBody>
       </Card>
     );
-  };
+  }
 }
 
 export default CommentContainer;

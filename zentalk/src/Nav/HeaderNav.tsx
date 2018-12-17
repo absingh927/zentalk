@@ -47,7 +47,7 @@ class HeaderNav extends React.PureComponent<HeaderNavProps, HeaderNavState> {
         <Button
           color='primary'
           className='ml-auto'
-          onClick={(e: React.MouseEvent<HTMLButtonElement>) => this.handleNavClickAction(e,'login')}
+          onClick={(e: React.MouseEvent<HTMLButtonElement>) => this.handleNavClickAction(e, 'login')}
         >
           Login
         </Button>
@@ -67,14 +67,14 @@ class HeaderNav extends React.PureComponent<HeaderNavProps, HeaderNavState> {
             <NavItem>
               <Button
                 color='primary'
-                onClick={(e: React.MouseEvent<HTMLButtonElement>) => this.handleNavClickAction(e,'newpost')}>
+                onClick={(e: React.MouseEvent<HTMLButtonElement>) => this.handleNavClickAction(e, 'newpost')}>
                   Create New Post
               </Button>
             </NavItem>
             <NavItem>
               <Button
                 color='link'
-                onClick={(e: React.MouseEvent<HTMLButtonElement>) => this.handleNavClickAction(e,'logout')}
+                onClick={(e: React.MouseEvent<HTMLButtonElement>) => this.handleNavClickAction(e, 'logout')}
               >
                 Logout
               </Button>
@@ -94,12 +94,12 @@ class HeaderNav extends React.PureComponent<HeaderNavProps, HeaderNavState> {
   private handleNavClickAction = (e: React.MouseEvent<HTMLButtonElement>, actionType: string ) => {
     e.preventDefault();
     if (actionType === 'login') {
-      this.props.showModal(LoginModal,{});
-    } else if( actionType === 'logout'){
+      this.props.showModal(LoginModal, {});
+    } else if( actionType === 'logout') {
       this.props.userLogout();
-    } else if (actionType === 'newpost'){
-      this.props.showModal(NewPostModal,{});
-    } 
+    } else if (actionType === 'newpost') {
+      this.props.showModal(NewPostModal, {});
+    }
     return;
   }
 }

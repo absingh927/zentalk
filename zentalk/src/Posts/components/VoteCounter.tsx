@@ -1,20 +1,20 @@
 import * as React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faCaretUp} from '@fortawesome/free-solid-svg-icons';
 import { CardText } from 'reactstrap';
-import { voteCounter }  from '../PostsActions';
+import { voteCounter } from '../PostsActions';
 import { connect } from 'react-redux';
 import { AppState } from 'src/AppState';
 import LoginModal from '../../Users/components/LoginModal';
 import { showModal } from '../../shared/ModalManager/ModalManagerActions';
 
 type VoteCounterOwnProps = {
-  postid: string,
-  currentCount: number,
+  postid: string;
+  currentCount: number;
 };
 
 type VoteCounterStateProps = {
-  isLoggedIn: boolean, 
+  isLoggedIn: boolean,
 };
 
 const mapDispatchToProps = {
@@ -36,11 +36,11 @@ class VoteCounter extends React.PureComponent<VoteCounterProps> {
   public render() {
     return (
       <div>
-        <CardText onClick={e => this.handleVoteClick('up')}>
+        <CardText onClick={(e) => this.handleVoteClick('up')}>
           <FontAwesomeIcon icon={faCaretUp}/>
         </CardText>
         <CardText>{this.props.currentCount}</CardText>
-        <CardText onClick={e => this.handleVoteClick('down')}>
+        <CardText onClick={(e) => this.handleVoteClick('down')}>
           <FontAwesomeIcon icon={faCaretDown}/>
         </CardText>
       </div>
@@ -51,21 +51,20 @@ class VoteCounter extends React.PureComponent<VoteCounterProps> {
     if (this.props.isLoggedIn) {
       switch (voteType) {
         case 'up':
-          return this.props.voteCounter('up', this.props.postid,this.props.currentCount);
+          return this.props.voteCounter('up', this.props.postid, this.props.currentCount);
         case 'down':
-        return this.props.voteCounter('down', this.props.postid,this.props.currentCount);
+        return this.props.voteCounter('down', this.props.postid, this.props.currentCount);
         default:
           return;
-      } 
+      }
     } else {
       const userMessage = 'You need to logged in to vote.';
-      this.props.showModal(LoginModal,{
-        userMessage: userMessage
+      this.props.showModal(LoginModal, {
+        userMessage: userMessage,
       });
-      return
+      return;
     }
   }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(VoteCounter);
-

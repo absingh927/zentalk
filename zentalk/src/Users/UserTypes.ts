@@ -9,7 +9,7 @@ export type Users = {
 };
 
 export type User = {
-  avatar_url:string;
+  avatar_url: string;
   id: string;
   username: string;
   password: string;

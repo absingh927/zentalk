@@ -14,29 +14,29 @@ type NewPostOwnProps = {
 
 const mapDistpatchToProps = {
   hideModal,
-  createNewPost
+  createNewPost,
 };
 
 const mapStateToProps = (store: AppState): NewPostOwnProps => ({
-  createNewPostState: store.posts.createNewPostState
+  createNewPostState: store.posts.createNewPostState,
 });
 
 type NewUserProps = NewPostOwnProps & typeof mapDistpatchToProps;
 
 type NewUserState = {
-  postName: string,
-  postExternalLink: string,
-  postContent: string,
+  postName: string;
+  postExternalLink: string;
+  postContent: string;
 };
 
-class NewPostModal extends React.PureComponent<NewUserProps, NewUserState>{
+class NewPostModal extends React.PureComponent<NewUserProps, NewUserState >{
   constructor(props: NewUserProps) {
     super(props);
 
     this.state = {
       postName: '',
-      postExternalLink:'',
-      postContent : '',
+      postExternalLink: '',
+      postContent: '',
     };
   }
 
@@ -55,8 +55,8 @@ class NewPostModal extends React.PureComponent<NewUserProps, NewUserState>{
             <Input
               type='text'
               name='post-title'
-              value={this.state.postName} 
-              onChange={e => this.setState({postName: e.target.value})} 
+              value={this.state.postName}
+              onChange={(e) => this.setState({postName: e.target.value})}
               placeholder='Post Title'
             />
           </FormGroup>
@@ -65,8 +65,8 @@ class NewPostModal extends React.PureComponent<NewUserProps, NewUserState>{
             <Input
               type='text'
               name='post-link'
-              value={this.state.postExternalLink} 
-              onChange={e => this.setState({postExternalLink: e.target.value})} 
+              value={this.state.postExternalLink}
+              onChange={(e) => this.setState({postExternalLink: e.target.value})}
               placeholder='External Link'
             />
           </FormGroup>
@@ -75,8 +75,8 @@ class NewPostModal extends React.PureComponent<NewUserProps, NewUserState>{
             <Input
               type='textarea'
               name='post-content'
-              value={this.state.postContent} 
-              onChange={e => this.setState({postContent: e.target.value})} 
+              value={this.state.postContent}
+              onChange={(e) => this.setState({postContent: e.target.value})}
               placeholder='Content'
             />
           </FormGroup>
@@ -96,9 +96,8 @@ class NewPostModal extends React.PureComponent<NewUserProps, NewUserState>{
       name: this.state.postName,
       voteCount: 0,
     };
-    
     this.props.createNewPost(newPost);
-  };
+  }
 
   private renderUserMessage = (currentUserState: CallStates) => {
     if (currentUserState === Success) {
@@ -108,7 +107,7 @@ class NewPostModal extends React.PureComponent<NewUserProps, NewUserState>{
         );
       }
     return;
-    };
+  }
 }
 
 export default connect(mapStateToProps, mapDistpatchToProps)(NewPostModal);

@@ -13,7 +13,7 @@ type HeaderNavContainerStateProps = {
 
 const mapDispatchToProps = {
   showModal,
-  userLogout
+  userLogout,
 };
 
 type HeaderNavContainerProps = HeaderNavContainerStateProps & typeof mapDispatchToProps;
