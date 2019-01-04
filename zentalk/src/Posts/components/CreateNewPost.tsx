@@ -95,6 +95,7 @@ class NewPostModal extends React.PureComponent<NewUserProps, NewUserState >{
       link: this.state.postExternalLink,
       name: this.state.postName,
       voteCount: 0,
+      createdAt: new Date().toUTCString(),
     };
     this.props.createNewPost(newPost);
   }

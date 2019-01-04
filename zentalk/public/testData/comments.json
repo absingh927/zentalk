@@ -9,7 +9,8 @@
         "id": "users_0",
         "logged_in": false,
         "username": "asingh"
-      }
+      },
+      "createdAt": "Sat Oct 20 2012 18:25:13"
     },
     {
       "comment_id": "post_0-comment_1",
@@ -20,7 +21,8 @@
         "id": "users_1",
         "logged_in": false,
         "username": "nkeith"
-      }
+      },
+      "createdAt": "Sat Oct 20 2012 18:25:13"
     },
     {
       "comment_id": "post_1-comment_2",
@@ -31,7 +33,8 @@
         "id": "users_2",
         "logged_in": false,
         "username": "srogers"
-      }
+      },
+      "createdAt": "Sat Oct 20 2012 18:25:13"
     },
     {
       "comment_id": "post_2-comment_3",
@@ -42,7 +45,8 @@
         "id": "users_3",
         "logged_in": false,
         "username": "mlarson"
-      }
+      },
+      "createdAt": "Sat Oct 20 2012 18:25:13"
     },
     {
       "comment_id": "post_3-comment_4",
@@ -53,7 +57,8 @@
         "id": "users_5",
         "logged_in": false,
         "username": "tstark"
-      }
+      },
+      "createdAt": "Sat Oct 20 2012 18:25:13"
     }
   ]
 }

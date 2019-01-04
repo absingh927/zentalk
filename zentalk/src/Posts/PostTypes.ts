@@ -13,6 +13,7 @@ export type Post = {
   link: string;
   name: string;
   voteCount: number;
+  createdAt: string;
 };
 
 export type VoteCounterType = {

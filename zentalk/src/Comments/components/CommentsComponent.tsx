@@ -3,6 +3,7 @@ import { Comment } from '../CommentTypes';
 import { Card, Row, CardBody, CardText, Col, Button} from 'reactstrap';
 import NewCommentComponent from './NewComment';
 import { CurrentUser } from 'src/Users/UserTypes';
+import TimeStamp from '../../shared/TimeStamp';
 
 export type CommentsProps = {
   comments: Comment[];
@@ -98,6 +99,7 @@ class CommentContainer extends React.PureComponent<CommentsProps,CommentsState >
               <div className='align-self-center'>
                 <CardText className='m-0'>{comment.userInfo.username}</CardText>
                 <CardText className='m-0'>{comment.content}</CardText>
+                <CardText className='m-0'><TimeStamp date={comment.createdAt} /></CardText>
               </div>
             </Col>
           </Row>

@@ -64,6 +64,7 @@ class NewCommentComponent extends React.PureComponent<NewCommentProps, NewCommen
       content: this.state.userComment,
       post_id: this.props.post_id,
       userInfo: this.props.currentUser,
+      createdAt: new Date().toUTCString(),
     };
     this.props.createNewUserComment(newComment);
     this.setState({

@@ -15,6 +15,7 @@ export type Comment = {
   content: string;
   post_id: string;
   userInfo: CurrentUser;
+  createdAt: string;
 };
 
 export type NewComment = {

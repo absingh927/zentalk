@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import HeaderNav from './HeaderNav';
 import { showModal } from '../shared/ModalManager/ModalManagerActions';
 import { userLogout } from '../Users/UserActions';
+import { searchString } from '../Search/SearchActions';
 
 type HeaderNavContainerStateProps = {
   userLoggedIn: boolean;
@@ -14,6 +15,7 @@ type HeaderNavContainerStateProps = {
 const mapDispatchToProps = {
   showModal,
   userLogout,
+  searchString,
 };
 
 type HeaderNavContainerProps = HeaderNavContainerStateProps & typeof mapDispatchToProps;

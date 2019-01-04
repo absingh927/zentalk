@@ -4,6 +4,8 @@ import { Card, Row, Col, CardBody, CardText } from 'reactstrap';
 import VoteCounter from './VoteCounter';
 import { orderBy } from 'lodash-es';
 import CommentsContainer from '../../Comments/components/CommentContainer';
+import TimeStamp from '../../shared/TimeStamp';
+
 
 type PostProps = {
   posts: Post[];
@@ -47,7 +49,10 @@ class PostComponent extends React.PureComponent<PostProps >{
               <VoteCounter postid={post.id} currentCount={post.voteCount} />
             </Col>
             <Col xs='9' sm='10'>
-              <h5 className='m-0'>{post.name}</h5>
+              <div>
+                <span className='h5 m-0 text-left'>{post.name}</span>
+                <TimeStamp date={post.createdAt} className='m-0 text-right float-right'/>
+              </div>
               <div className='d-sm-flex justify-content-between'>
                 <CardText className='m-0'><a href={post.link} target='_blank'>{post.link}</a></CardText>
                 <CardText className='m-0'>{post.comments.length}{post.comments.length === 1 ? ' comment' : ' comments'}</CardText>

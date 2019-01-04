@@ -8,15 +8,18 @@ import NavbarToggler from 'reactstrap/lib/NavbarToggler';
 import LoginModal from '../Users/components/LoginModal';
 import NewPostModal from '../Posts/components/CreateNewPost';
 
+
 type HeaderNavProps = {
   userLoggedIn: boolean;
   currentUser: CurrentUser;
   showModal: (modalType: React.ComponentClass<any>, modalProps: any) => void;
   userLogout: () => void;
+  searchString: (searchQuery: string) => void;
 };
 
 type HeaderNavState = {
   isOpen: boolean;
+
 };
 
 class HeaderNav extends React.PureComponent<HeaderNavProps, HeaderNavState> {
@@ -65,6 +68,9 @@ class HeaderNav extends React.PureComponent<HeaderNavProps, HeaderNavState> {
         <Collapse isOpen={this.state.isOpen} navbar={true} className='text-right mt-2'>
           <Nav navbar={true} className='ml-auto'>
             <NavItem>
+              <input className='mr-3' type='text' onChange={this.handleSearch}/>
+            </NavItem>
+            <NavItem>
               <Button
                 color='primary'
                 onClick={(e: React.MouseEvent<HTMLButtonElement>) => this.handleNavClickAction(e, 'newpost')}>
@@ -101,6 +107,12 @@ class HeaderNav extends React.PureComponent<HeaderNavProps, HeaderNavState> {
       this.props.showModal(NewPostModal, {});
     }
     return;
+  }
+
+  private handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // console.log(e.target.value);
+    //send to redux
+    this.props.searchString(e.target.value);
   }
 }
 

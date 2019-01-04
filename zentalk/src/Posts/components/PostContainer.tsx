@@ -3,13 +3,16 @@ import { Post } from '../PostTypes';
 import { AppState } from 'src/AppState';
 import { connect } from 'react-redux';
 import PostComponent from './PostComponent';
+import { filter}  from 'lodash-es';
 
 type PostContainerStateProps = {
   currentPosts: Post[];
+  searchString: string;
 };
 
 const mapStatetoProps = (store: AppState): PostContainerStateProps => ({
   currentPosts: store.posts.posts,
+  searchString: store.searchQuery.searchText,
 });
 
 class PostsContainer extends React.PureComponent<PostContainerStateProps> {
@@ -18,8 +21,17 @@ class PostsContainer extends React.PureComponent<PostContainerStateProps> {
   }
 
   public render() {
+    const searchString = this.props.searchString;
+    let searchedPosts = this.props.currentPosts;
+
+    if (searchString !== '') {
+      searchedPosts = filter(this.props.currentPosts, (post) => 
+        post.name.toLowerCase().includes(searchString.toLowerCase()) || post.content.toLowerCase().includes(searchString.toLowerCase())
+      )
+    }
+
     return (
-      <PostComponent posts={this.props.currentPosts}/>
+      <PostComponent posts={searchedPosts}/>
     );
   }
 }
