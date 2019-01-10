@@ -14,7 +14,7 @@
 
 > Describe the major design/build decisions and why you made them.
 
-  The framework I choose was React along with using `TypeSript` and `react-redux` for state management. I had previously worked with the all three of technologies and these are also ideal for a front end focused application. React also allows for giving the overall app a very smooth and quick feel, while `TypeScript` make you very aware of the data your are passing in your logic. Jeff Wallace and I had also talked a fair amount about using TypeScript with React so it was a good chance to demonstrate as well.
+  The framework I choose was React along with using `TypeSript` and `react-redux` for state management. I had previously worked with the all three of technologies and these are also ideal for a front end focused application. React also allows for giving the overall app a very smooth and quick feel, while `TypeScript` make you very aware of the data your are passing in your logic. 
 
   For the architecture of the application, I tried to split each major aspect into its own feature with corresponding views, reducers, and actions, while loosely following the ducks pattern. The advantage and disadvantage of Redux is that the framework is not opinionated itself, so it really allows you design in a way that makes sense to you. However, I think feature is always the best way to go because it allows you to design a scalable solution that can also be understood easily by other developers later on. 
 

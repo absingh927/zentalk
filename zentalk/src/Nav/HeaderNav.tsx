@@ -110,8 +110,6 @@ class HeaderNav extends React.PureComponent<HeaderNavProps, HeaderNavState> {
   }
 
   private handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // console.log(e.target.value);
-    //send to redux
     this.props.searchString(e.target.value);
   }
 }
