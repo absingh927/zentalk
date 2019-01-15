@@ -1,11 +1,11 @@
-### Zenhub CommentSystem
+### Zentalk
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
-The app automatically creates dummy data to work with that inclues, users, posts and comments.
+The app automatically creates dummy data to show some initial posts.
 
 - `yarn` to install dependencies for the application.
 - `yarn start` to launch application. It will automatically open to `localhost:3000`
-  - Make sure you are in the /zentalk folder when you run `start`.
+- Make sure you are in the /zentalk folder when you run `start`.
 
 - Uses Reactstrap compoents to build layout in Bootstrap 4. It uses flexbox!
 - The application is mobile friendly.
@@ -17,6 +17,7 @@ The app automatically creates dummy data to work with that inclues, users, posts
 - Post a comment for an article
 - Articles ordered by most number of votes
 - Allows for voting and creating new post only if logged in
+-
 
 ### Test Users
 

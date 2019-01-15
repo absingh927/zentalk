@@ -4,37 +4,37 @@
       "id": "user_0",
       "username": "asingh",
       "password": "tester123",
-      "avatar_url": "http://placekitten.com/200/300"
+      "avatar_url": "http://placekitten.com/100/100"
     },
     {
       "id": "user_1",
       "username": "nkeith",
       "password": "tester123",
-      "avatar_url": "http://placekitten.com/200/300"
+      "avatar_url": "http://placekitten.com/100/100"
     },
     {
       "id": "user_2",
       "username": "srogers",
       "password": "tester123",
-      "avatar_url": "http://placekitten.com/200/300"
+      "avatar_url": "http://placekitten.com/100/100"
     },
     {
       "id": "user_3",
       "username": "mlarson",
       "password": "tester123",
-      "avatar_url": "http://placekitten.com/200/300"
+      "avatar_url": "http://placekitten.com/100/100"
     },
     {
       "id": "user_4",
       "username": "bortega",
       "password": "tester123",
-      "avatar_url": "http://placekitten.com/200/300"
+      "avatar_url": "http://placekitten.com/100/100"
     },
     {
       "id": "user_5",
       "username": "tstark",
       "password": "tester123",
-      "avatar_url": "http://placekitten.com/200/300"
+      "avatar_url": "http://placekitten.com/100/100"
     }
   ]
 }

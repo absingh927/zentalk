@@ -5,7 +5,7 @@
       "content": "incididunt tempor minim ad irure magna voluptate proident dolor deserunt",
       "post_id": "post_0",
       "userInfo": {
-        "avatar_url": "http://placekitten.com/200/300",
+        "avatar_url": "http://placekitten.com/100/100",
         "id": "users_0",
         "logged_in": false,
         "username": "asingh"
@@ -17,7 +17,7 @@
       "content": "incididunt ullamco laborum cillum dolor elit cillum elit officia duis",
       "post_id": "post_0",
       "userInfo": {
-        "avatar_url": "http://placekitten.com/200/300",
+        "avatar_url": "http://placekitten.com/100/100",
         "id": "users_1",
         "logged_in": false,
         "username": "nkeith"
@@ -29,7 +29,7 @@
       "content": "aute quis enim sit reprehenderit aliquip aliqua anim consequat ad",
       "post_id": "post_1",
       "userInfo": {
-        "avatar_url": "http://placekitten.com/200/300",
+        "avatar_url": "http://placekitten.com/100/100",
         "id": "users_2",
         "logged_in": false,
         "username": "srogers"
@@ -41,7 +41,7 @@
       "content": "nulla nisi officia magna eiusmod culpa eu esse eu sit",
       "post_id": "post_2",
       "userInfo": {
-        "avatar_url": "http://placekitten.com/200/300",
+        "avatar_url": "http://placekitten.com/100/100",
         "id": "users_3",
         "logged_in": false,
         "username": "mlarson"
@@ -53,7 +53,7 @@
       "content": "aliquip enim fugiat tempor laborum ea voluptate non sint exercitation",
       "post_id": "post_3",
       "userInfo": {
-        "avatar_url": "http://placekitten.com/200/300",
+        "avatar_url": "http://placekitten.com/100/100",
         "id": "users_5",
         "logged_in": false,
         "username": "tstark"
