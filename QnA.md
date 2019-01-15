@@ -8,8 +8,10 @@
 
 > List a two or three features that you would consider implementing in the future that would add significant value to the project. 
   - Article and Comment time and date information as how many hours ago it was posted.
-  - Trending/Featured article carousel on top
+  - Trending/Featured/ article carousel on top
   - How long article/post will take to read
+  - Favorites/ bookmarked articles
+  - Share Functionality
 ---
 
 > Describe the major design/build decisions and why you made them.
