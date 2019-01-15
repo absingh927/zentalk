@@ -17,7 +17,7 @@ The app automatically creates dummy data to show some initial posts.
 - Post a comment for an article
 - Articles ordered by most number of votes
 - Allows for voting and creating new post only if logged in
--
+- Allows searching of articles
 
 ### Test Users
 

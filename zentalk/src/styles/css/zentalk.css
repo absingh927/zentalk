@@ -6318,31 +6318,6 @@ body {
   font-family: sans-serif;
   background-color: #adb5bd; }
 
-.App {
-  text-align: center; }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px; }
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white; }
-
-.App-title {
-  font-size: 1.5em; }
-
-.App-intro {
-  font-size: large; }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg); }
-  to {
-    transform: rotate(360deg); } }
-
 .navbar {
   background-color: #e9ecef; }
 
@@ -6370,6 +6345,11 @@ body {
     .card .newComment .newComment-btnPost-container {
       max-width: 10%;
       width: 10%; } }
+
+.animate {
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite; }
 
 .user-icon {
   border-radius: 50%;

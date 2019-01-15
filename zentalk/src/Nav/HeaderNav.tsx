@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Navbar, Collapse, Nav, NavItem, Button } from 'reactstrap';
+import { Navbar, Collapse, Nav, NavItem, Button, FormGroup, Input } from 'reactstrap';
 import NavbarBrand from 'reactstrap/lib/NavbarBrand';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBullseye, faBars } from '@fortawesome/free-solid-svg-icons';
@@ -7,7 +7,6 @@ import { CurrentUser } from '../Users/UserTypes';
 import NavbarToggler from 'reactstrap/lib/NavbarToggler';
 import LoginModal from '../Users/components/LoginModal';
 import NewPostModal from '../Posts/components/CreateNewPost';
-
 
 type HeaderNavProps = {
   userLoggedIn: boolean;
@@ -68,7 +67,13 @@ class HeaderNav extends React.PureComponent<HeaderNavProps, HeaderNavState> {
         <Collapse isOpen={this.state.isOpen} navbar={true} className='text-right mt-2'>
           <Nav navbar={true} className='ml-auto'>
             <NavItem>
-              <input className='mr-3' type='text' onChange={this.handleSearch}/>
+              <FormGroup className='mr-3'>
+                <Input
+                  type='text'
+                  placeholder="Search Posts"
+                  onChange={this.handleSearch}
+                />
+              </FormGroup>
             </NavItem>
             <NavItem>
               <Button

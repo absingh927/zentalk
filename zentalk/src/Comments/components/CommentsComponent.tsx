@@ -92,7 +92,7 @@ class CommentContainer extends React.PureComponent<CommentsProps,CommentsState >
       <Card className='m-2 border-0' key={comment.comment_id}>
         <CardBody>
           <Row>
-            <Col xs='12' className='d-flex'>
+            <Col xs='12' className='d-flex ml-5'>
               <div className='mr-3'>
                 <img className='user-icon' src={comment.userInfo.avatar_url}/>
               </div>
