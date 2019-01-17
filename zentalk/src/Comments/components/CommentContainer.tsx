@@ -4,7 +4,7 @@ import { AppState } from 'src/AppState';
 import { connect } from 'react-redux';
 import CommentsComponent from './CommentsComponent';
 import { CurrentUser } from 'src/Users/UserTypes';
-import { filter } from 'lodash-es';
+import { filter } from 'lodash';
 
 export type CommentContainerOwnProps = {
   curretnPostId: string;

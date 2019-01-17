@@ -2,7 +2,7 @@ import { Dispatch } from 'redux';
 import * as constants from './UserConstants';
 import axios from 'axios';
 import { AppState } from '../AppState';
-import { find, uniqueId } from 'lodash-es';
+import { find, uniqueId } from 'lodash';
 import { currentUserDefaultState } from './UserTypes';
 
 export const createDummyUsers = () => (dispatch: Dispatch) => {

@@ -2,7 +2,7 @@ import { Action, Success, Loading } from '../types';
 import { Posts, Post, VoteCounterType } from './PostTypes';
 import * as constants from './PostsConstants';
 import { ReducerMap } from '../helpers';
-import { cloneDeep, findIndex } from 'lodash-es';
+import { cloneDeep, findIndex } from 'lodash';
 import { PostCommentUpdateType } from '../Comments/CommentTypes';
 
 export const handlers: ReducerMap<Posts> = {

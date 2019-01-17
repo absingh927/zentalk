@@ -5,7 +5,7 @@ import { Form, FormGroup, Label, Input } from 'reactstrap';
 import { CallStates, Success } from 'src/types';
 import { AppState } from 'src/AppState';
 import { hideModal } from '../../shared/ModalManager/ModalManagerActions';
-import { uniqueId } from 'lodash-es';
+import { uniqueId } from 'lodash';
 import { createNewPost } from '../PostsActions';
 
 type NewPostOwnProps = {
@@ -51,7 +51,7 @@ class NewPostModal extends React.PureComponent<NewUserProps, NewUserState >{
         {this.renderUserMessage(this.props.createNewPostState)}
         <Form>
           <FormGroup>
-            <Label for='post-title'>Username</Label>
+            <Label for='post-title'>Post Title</Label>
             <Input
               type='text'
               name='post-title'

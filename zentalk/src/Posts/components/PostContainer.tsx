@@ -3,7 +3,7 @@ import { Post } from '../PostTypes';
 import { AppState } from 'src/AppState';
 import { connect } from 'react-redux';
 import PostComponent from './PostComponent';
-import { filter}  from 'lodash-es';
+import { filter}  from 'lodash';
 
 type PostContainerStateProps = {
   currentPosts: Post[];

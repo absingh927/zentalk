@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 import * as constants from './CommentsConstants';
 import { NewComment } from './CommentTypes';
-import { uniqueId } from 'lodash-es';
+import { uniqueId } from 'lodash';
 import axios from 'axios';
 import { NEW_COMMENT_POST_UPDATE } from '../Posts/PostsConstants';
 
