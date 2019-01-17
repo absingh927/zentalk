@@ -32,14 +32,14 @@ describe('Post Actions', () => {
     const store = mockStore();
 
     const expected = {
-      type: constants.VOTE_COUNT_UP,
+      type: constants.VOTE_COUNT_DOWN,
       payload: {
         postid: 'post_3',
         currentCount: 19,
       }
     };
 
-    await store.dispatch<any>(actions.voteCounter('up', expected.payload.postid, expected.payload.currentCount));
+    await store.dispatch<any>(actions.voteCounter('down', expected.payload.postid, 19));
     const action =  store.getActions();
 
     expect(action[0]).toEqual(expected);
